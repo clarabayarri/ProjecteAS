@@ -9,5 +9,20 @@ package DomainModel;
  * @author lluisgh28
  */
 public class Client {
+    String dni;
+    String nom;
+    String cognoms;
+    String email;
+
+    public String getNom() {
+        return nom;
+    }
     
+    public String getCognoms() {
+        return cognoms;
+    }
+    
+    public String getEmail() {
+        return email;
+    }
 }
