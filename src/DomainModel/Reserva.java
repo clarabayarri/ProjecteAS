@@ -17,6 +17,15 @@ public class Reserva {
     String idReserva;
     Float preuTotal;
     
+    public Reserva(Date dIni, Date dFi, String idR, Float preuTotal, Habitacio hab) {
+        this.dataInici = dIni;
+        this.dataFi = dFi;
+        this.dataReserva = new Date();
+        this.idReserva = idR;
+        this.preuTotal = preuTotal;
+        hab.afReserva(this);
+    }
+    
     public boolean esSolapa(Date dIni, Date dFi) {        
         return dIni.before(dataFi) && dFi.after(dataInici); 
     }

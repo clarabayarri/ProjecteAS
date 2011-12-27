@@ -13,6 +13,12 @@ public class TipusHabitacio {
     Integer capacitat;
     String descripcio;
     
+    public TipusHabitacio(String nom, Integer capacitat, String descripcio) {
+        this.nom = nom;
+        this.capacitat = capacitat;
+        this.descripcio = descripcio;
+    }
+    
     public String getNom() {
        return nom;
     }

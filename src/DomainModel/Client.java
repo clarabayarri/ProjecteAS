@@ -14,6 +14,14 @@ public class Client {
     String cognoms;
     String email;
 
+    
+    public Client(String dni, String nom, String cognoms, String email) {
+        this.dni = dni;
+        this.nom = nom;
+        this.cognoms = cognoms;
+        this.email = email;
+    }
+    
     public String getNom() {
         return nom;
     }

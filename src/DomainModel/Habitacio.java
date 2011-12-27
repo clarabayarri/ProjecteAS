@@ -16,6 +16,13 @@ public class Habitacio {
     TipusHabitacio tipusHabitacio;
     ArrayList<Reserva> reserves;
     
+    
+    public Habitacio(Integer numero, TipusHabitacio tipusHabitacio) {
+        this.numero = numero;
+        this.tipusHabitacio = tipusHabitacio;
+        this.reserves = new ArrayList<Reserva>();
+    }
+    
     public Integer getNumero() {
        return numero; 
     }
