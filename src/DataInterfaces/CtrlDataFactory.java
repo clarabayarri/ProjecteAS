@@ -4,6 +4,8 @@
  */
 package DataInterfaces;
 
+import DomainModel.Habitacio;
+
 /**
  *
  * @author lluisgh28
@@ -14,6 +16,9 @@ public class CtrlDataFactory {
     private CtrlHotel ctrlHotel;
     private CtrlClient ctrlClient;
     private CtrlHabitacio ctrlHabitacio;
+    
+    
+    private CtrlDataFactory() {};
     
     public static CtrlDataFactory getInstance() {
         if (instance == null) instance = new CtrlDataFactory();
@@ -28,6 +33,16 @@ public class CtrlDataFactory {
     public CtrlHotel getCtrlHotel() {
         if (ctrlHotel == null) ctrlHotel = new CtrlHotel();
         return ctrlHotel;
+    }
+    
+    public CtrlClient getCtrlClient() {
+        if (ctrlClient == null) ctrlClient = new CtrlClient();
+        return ctrlClient;
+    }
+    
+    public CtrlHabitacio getCtrlHabitacio() {
+        if (ctrlHabitacio == null) ctrlHabitacio = new CtrlHabitacio();
+        return ctrlHabitacio;
     }
     
     

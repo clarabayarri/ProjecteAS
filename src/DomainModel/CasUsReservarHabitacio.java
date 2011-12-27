@@ -21,6 +21,8 @@ public class CasUsReservarHabitacio {
     Float preuTotal;
     
     
+    public CasUsReservarHabitacio() {};
+    
     public buscarHabitacio(String pob, Date dIni, Date dFi, Integer numOcup) {
         
     }
