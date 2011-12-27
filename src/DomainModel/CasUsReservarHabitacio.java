@@ -19,4 +19,14 @@ public class CasUsReservarHabitacio {
     String tipusHabitacio;
     Integer numHabitacio;
     Float preuTotal;
+    
+    
+    public Tuple<> buscarHabitacio(String pob, Date dIni, Date dFi, Integer numOcup) {
+        
+    }
+    
+    public void pagament(String numTarg, Date dCad) {
+        //TODO cridar servei de pagament
+    }
+    
 }
