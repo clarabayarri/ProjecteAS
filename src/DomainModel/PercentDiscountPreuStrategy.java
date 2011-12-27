@@ -8,6 +8,11 @@ package DomainModel;
  *
  * @author clara
  */
-public class PercentDiscountPreuStrategy {
+public class PercentDiscountPreuStrategy implements IPreuStrategy {
+
+    @Override
+    public float calculaPreu(PreuTipusHabitacio p) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
     
 }
