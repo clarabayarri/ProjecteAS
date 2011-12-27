@@ -10,9 +10,32 @@ package DomainModel;
  */
 public class AbsoluteDiscountPreuStrategy implements IPreuStrategy {
 
+    private float descompte;
+    
+    /**
+     * Creadora per defecte
+     */
+    public AbsoluteDiscountPreuStrategy() {
+        this.descompte = 0;
+    }
+    
+    /**
+     * Creadora amb parametre de descompte
+     * @param descompte 
+     */
+    public AbsoluteDiscountPreuStrategy(float descompte){
+        this.descompte = descompte;
+    }
+    
+    /**
+     * Implementacio propia del calculaPreu, on es resta el descompte absolut 
+     * al preu base
+     * @param p
+     * @return 
+     */
     @Override
     public float calculaPreu(PreuTipusHabitacio p) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return p.getPreu() - this.descompte;
     }
     
 }
