@@ -11,6 +11,7 @@ package DomainModel;
 public class PreuTipusHabitacio {
     private float preu;
     private TipusHabitacio tipus;
+    private IPreuStrategy strategy;
     
     /**
      * Creadora per defecte
@@ -43,6 +44,14 @@ public class PreuTipusHabitacio {
      */
     public float getPreu() {
         return this.preu;
+    }
+    
+    /**
+     * Calcula el preu a partir de lestrategia associada
+     * @return 
+     */
+    public float calculaPreu() {
+        return this.strategy.calculaPreu(this);
     }
     
     /**
