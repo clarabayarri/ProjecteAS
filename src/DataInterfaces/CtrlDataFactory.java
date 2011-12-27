@@ -4,8 +4,6 @@
  */
 package DataInterfaces;
 
-import DomainModel.Habitacio;
-
 /**
  *
  * @author lluisgh28

@@ -23,9 +23,12 @@ public class CasUsReservarHabitacio {
     
     public CasUsReservarHabitacio() {};
     
+    /*    
     public buscarHabitacio(String pob, Date dIni, Date dFi, Integer numOcup) {
         
     }
+     * 
+     */
     
     public void pagament(String numTarg, Date dCad) {
         //TODO cridar servei de pagament
