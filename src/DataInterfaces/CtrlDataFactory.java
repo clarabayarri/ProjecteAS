@@ -24,22 +24,22 @@ public class CtrlDataFactory {
     }
     
     public CtrlPoblacio getCtrlPoblacio() {
-        if (ctrlPoblacio == null) ctrlPoblacio = new CtrlPoblacio();
+    //TODO    if (ctrlPoblacio == null) ctrlPoblacio = new CtrlPoblacio();
         return ctrlPoblacio;
     }
     
     public CtrlHotel getCtrlHotel() {
-        if (ctrlHotel == null) ctrlHotel = new CtrlHotel();
+    //TODO    if (ctrlHotel == null) ctrlHotel = new CtrlHotel();
         return ctrlHotel;
     }
     
     public CtrlClient getCtrlClient() {
-        if (ctrlClient == null) ctrlClient = new CtrlClient();
+    //TODO    if (ctrlClient == null) ctrlClient = new CtrlClient();
         return ctrlClient;
     }
     
     public CtrlHabitacio getCtrlHabitacio() {
-        if (ctrlHabitacio == null) ctrlHabitacio = new CtrlHabitacio();
+    //TODO    if (ctrlHabitacio == null) ctrlHabitacio = new CtrlHabitacio();
         return ctrlHabitacio;
     }
     
