@@ -4,6 +4,7 @@
  */
 package DomainModel;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -23,12 +24,17 @@ public class CasUsReservarHabitacio {
     
     public CasUsReservarHabitacio() {};
     
+    public ArrayList<String> obtePoblacions() {
+        
+    }
+    
     /*    
     public buscarHabitacio(String pob, Date dIni, Date dFi, Integer numOcup) {
         
     }
      * 
      */
+    
     
     public void pagament(String numTarg, Date dCad) {
         //TODO cridar servei de pagament
