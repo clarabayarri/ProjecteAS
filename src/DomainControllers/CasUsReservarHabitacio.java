@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package DomainModel;
+package DomainControllers;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -25,7 +25,8 @@ public class CasUsReservarHabitacio {
     public CasUsReservarHabitacio() {};
     
     public ArrayList<String> obtePoblacions() {
-        
+        ArrayList<String> s = new ArrayList<String>();
+        return s;
     }
     
     /*    
