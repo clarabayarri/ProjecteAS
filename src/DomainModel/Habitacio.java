@@ -13,13 +13,12 @@ import java.util.Date;
  */
 public class Habitacio {
     Integer numero;
-    TipusHabitacio tipusHabitacio;
+    Hotel hotel;
     ArrayList<Reserva> reserves;
     
     
-    public Habitacio(Integer numero, TipusHabitacio tipusHabitacio) {
+    public Habitacio(Integer numero) {
         this.numero = numero;
-        this.tipusHabitacio = tipusHabitacio;
         this.reserves = new ArrayList<Reserva>();
     }
     
@@ -33,15 +32,7 @@ public class Habitacio {
         }
         return true;
     }
-    
-    public String getNomTipus() {
-        return tipusHabitacio.getNom();
-    }
-    
-    public boolean esDeTipus(String tipus) {
-        return tipus.equals(tipusHabitacio.getNom());
-    }
-    
+
     public void afReserva(Reserva r) {
         reserves.add(r);
     }

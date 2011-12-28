@@ -4,6 +4,9 @@
  */
 package DomainModel;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 /**
  *
  * @author lluisgh28
@@ -12,11 +15,13 @@ public class TipusHabitacio {
     String nom;
     Integer capacitat;
     String descripcio;
+    ArrayList<Habitacio> habitacions;
     
     public TipusHabitacio(String nom, Integer capacitat, String descripcio) {
         this.nom = nom;
         this.capacitat = capacitat;
         this.descripcio = descripcio;
+        this.habitacions = new ArrayList<Habitacio>();
     }
     
     public String getNom() {
@@ -25,5 +30,13 @@ public class TipusHabitacio {
     
     public Integer getCapacitat() {
         return capacitat;
+    }
+    
+    public Integer numDisp(Date dIni, Date dFi, String nomHotel, Integer numOcup) {
+        int num = 0;
+        
+        //TODO cos del mètode
+        
+        return num;
     }
 }
