@@ -1,2 +1,5 @@
-nbproject/private/private.xml
+nbproject/private/.*
 .DS_Store
+
+
+nbproject/private/profiler/configurations.xml
