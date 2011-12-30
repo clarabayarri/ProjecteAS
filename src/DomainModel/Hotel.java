@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Hotel {
     String nom;
     String categoria;
-    ArrayList<Habitacio> habitacions;
+    ArrayList<PreuTipusHabitacio> preus;
     
     
     public Hotel(String nomH, String Cat){
@@ -33,7 +33,9 @@ public class Hotel {
         
     }
     
-    public void estaDisp(Date dIni, Date dFi,Integer numOc, )
+    public void estaDisp(Date dIni, Date dFi,Integer numOc, ) {
+        for(int i = 0;i < preus.)
+    }
     
     
     
