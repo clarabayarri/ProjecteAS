@@ -10,4 +10,11 @@ package DomainModel;
  */
 public class CategoriaHotel {
     
+    String nom;
+    
+    public String getNom(){
+        return this.nom;
+    }
+    
+    
 }
