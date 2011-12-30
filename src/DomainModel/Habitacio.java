@@ -36,4 +36,8 @@ public class Habitacio {
     public void afReserva(Reserva r) {
         reserves.add(r);
     }
+
+    boolean esDelHotel(String nomHotel) {
+        return this.hotel.getNom().equals(nomHotel);
+    }
 }
