@@ -12,6 +12,10 @@ public class CategoriaHotel {
     
     String nom;
     
+    public CategoriaHotel(String cat){
+        this.nom = cat;
+    }
+    
     public String getNom(){
         return this.nom;
     }

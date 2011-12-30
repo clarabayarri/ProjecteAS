@@ -5,6 +5,7 @@
 package DomainModel;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -14,6 +15,9 @@ public class Hotel {
     String nom;
     String categoria;
     ArrayList<PreuTipusHabitacio> preus;
+    ArrayList<Comentari> comentaris;
+    CategoriaHotel cat;
+    public Integer TEMPS = 24*60*60*1000;
     
     
     public Hotel(String nomH, String Cat){
@@ -25,8 +29,19 @@ public class Hotel {
         
     }
     
+    public String getNom(){
+        return this.nom;
+    }
+    
     public float obtePreuTotal(String tipushab, Date datainici, Date dataFi){
-        
+        int suma = 0;
+        for(int i = 0;i < preus.size();++i){
+            if(preus.get(i).isOfType(tipushab)) {
+                    suma = (int) (suma + preus.get(i).getPreu());
+            }
+        }
+        Integer dies = (dataFi.getTime() - datainici.getTime())/TEMPS; 
+        return suma*
     }
     
     public Integer obteNumeroHabLliure(String tipushab, Date datainici, Date dataFi){
@@ -34,7 +49,9 @@ public class Hotel {
     }
     
     public void estaDisp(Date dIni, Date dFi,Integer numOc, ) {
-        for(int i = 0;i < preus.)
+        for(int i = 0;i < preus.size();++i){
+            preus.get(i).numDisp(dIni,dFi)
+        }
     }
     
     
