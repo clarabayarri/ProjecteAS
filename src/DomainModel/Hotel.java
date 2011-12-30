@@ -45,12 +45,18 @@ public class Hotel {
     }
     
     public Integer obteNumeroHabLliure(String tipushab, Date datainici, Date dataFi){
-        
+        for(int i = 0;i< preus.size();++i){
+            if(preus.get(i).isOfType(tipushab)) {
+                return preus.get(i).habitacionsDisponibles(datainici,dataFi);
+            }     
+        } 
     }
     
     public void estaDisp(Date dIni, Date dFi,Integer numOc, ) {
         for(int i = 0;i < preus.size();++i){
-            preus.get(i).numDisp(dIni,dFi)
+            if(preus.get(i).numDisp(dIni,dFi,numOc,this.nom) > 0){
+                
+            }
         }
     }
     
