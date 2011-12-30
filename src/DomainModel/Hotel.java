@@ -37,11 +37,11 @@ public class Hotel {
         int suma = 0;
         for(int i = 0;i < preus.size();++i){
             if(preus.get(i).isOfType(tipushab)) {
-                    suma = (int) (suma + preus.get(i).getPreu());
+                    suma = (int) (suma + preus.get(i).calculaPreu());
             }
         }
-        Integer dies = (dataFi.getTime() - datainici.getTime())/TEMPS; 
-        return suma*
+        //Integer dies = (dataFi.getTime() - datainici.getTime())/TEMPS; 
+        return suma;
     }
     
     public Integer obteNumeroHabLliure(String tipushab, Date datainici, Date dataFi){
