@@ -10,4 +10,17 @@ package DomainModel;
  */
 public class Poblacio {
     
+    String nom;
+    
+    public Poblacio(String nom){
+        this.nom = nom;
+    }
+    
+    
+    public String getNom(){
+        return this.nom;
+    }
+    
+    
+    
 }
