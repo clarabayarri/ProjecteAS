@@ -4,10 +4,10 @@
  */
 package DomainFactories;
 
-import DataInterfaces.CtrlClient;
-import DataInterfaces.CtrlHabitacio;
-import DataInterfaces.CtrlHotel;
-import DataInterfaces.CtrlPoblacio;
+import DataInterfaces.ICtrlClient;
+import DataInterfaces.ICtrlHabitacio;
+import DataInterfaces.ICtrlHotel;
+import DataInterfaces.ICtrlPoblacio;
 
 /**
  *
@@ -15,10 +15,10 @@ import DataInterfaces.CtrlPoblacio;
  */
 public class CtrlDataFactory {
     private static CtrlDataFactory instance;
-    private CtrlPoblacio ctrlPoblacio;
-    private CtrlHotel ctrlHotel;
-    private CtrlClient ctrlClient;
-    private CtrlHabitacio ctrlHabitacio;
+    private ICtrlPoblacio ctrlPoblacio;
+    private ICtrlHotel ctrlHotel;
+    private ICtrlClient ctrlClient;
+    private ICtrlHabitacio ctrlHabitacio;
     
     
     private CtrlDataFactory() {};
@@ -28,23 +28,23 @@ public class CtrlDataFactory {
         return instance;
     }
     
-    public CtrlPoblacio getCtrlPoblacio() {
-    //TODO    if (ctrlPoblacio == null) ctrlPoblacio = new CtrlPoblacio();
+    public ICtrlPoblacio getCtrlPoblacio() {
+    //TODO    if (ctrlPoblacio == null) ctrlPoblacio = new ICtrlPoblacio();
         return ctrlPoblacio;
     }
     
-    public CtrlHotel getCtrlHotel() {
-    //TODO    if (ctrlHotel == null) ctrlHotel = new CtrlHotel();
+    public ICtrlHotel getCtrlHotel() {
+    //TODO    if (ctrlHotel == null) ctrlHotel = new ICtrlHotel();
         return ctrlHotel;
     }
     
-    public CtrlClient getCtrlClient() {
-    //TODO    if (ctrlClient == null) ctrlClient = new CtrlClient();
+    public ICtrlClient getCtrlClient() {
+    //TODO    if (ctrlClient == null) ctrlClient = new ICtrlClient();
         return ctrlClient;
     }
     
-    public CtrlHabitacio getCtrlHabitacio() {
-    //TODO    if (ctrlHabitacio == null) ctrlHabitacio = new CtrlHabitacio();
+    public ICtrlHabitacio getCtrlHabitacio() {
+    //TODO    if (ctrlHabitacio == null) ctrlHabitacio = new ICtrlHabitacio();
         return ctrlHabitacio;
     }
     
