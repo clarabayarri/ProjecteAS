@@ -4,6 +4,8 @@
  */
 package DomainModel;
 
+import java.util.Date;
+
 /**
  *
  * @author clara
@@ -63,5 +65,26 @@ public class PreuTipusHabitacio {
     public boolean isOfType(String tipus) {
         //TODO: arreglar amb el tipus correcte
         return this.tipus.getNom().equals(tipus);
+    }
+    
+    /**
+     * Calcula el nombre d'habitacions disponibles del tipus d'habitació de 
+     * l'hotel per unes dates i un nombre d'ocupants.
+     * @param dIni
+     * @param dFi
+     * @param nomHotel
+     * @param numOcup
+     * @return 
+     */
+    public Integer numDisp(Date dIni, Date dFi, String nomHotel, Integer numOcup) {
+        return this.tipus.numDisp(dIni, dFi, nomHotel, numOcup);
+    }
+    
+    /**
+     * Retorna el nom del tipus d'aquest PreuTipusHabitació.
+     * @return 
+     */
+    public String getNomTipus() {
+        return this.tipus.getNom();
     }
 }
