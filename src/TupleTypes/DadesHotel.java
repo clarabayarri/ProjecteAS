@@ -11,13 +11,13 @@ import java.util.ArrayList;
  * @author lluisgh28
  */
 public class DadesHotel {
-    String nom;
-    String desc;
-    String categoria;
-    Float avaluacio;
-    ArrayList<DadesHabitacio> habs;
-    
-    
+    public String nom;
+    public String desc;
+    public String categoria;
+    public Float avaluacio;
+    public ArrayList<DadesHabitacio> habs;
+}  
+  /*  
     public DadesHotel() {
         ArrayList<DadesHabitacio> habs = new ArrayList<DadesHabitacio>();
     }
@@ -70,3 +70,5 @@ public class DadesHotel {
         this.habs = habs;
     }
 }
+     * 
+     */
