@@ -8,7 +8,6 @@ import DataInterfaces.ICtrlClient;
 import DataInterfaces.ICtrlHabitacio;
 import DataInterfaces.ICtrlHotel;
 import DataInterfaces.ICtrlPoblacio;
-import DataInterfaces.ICtrlTipusHabitacio;
 
 /**
  *

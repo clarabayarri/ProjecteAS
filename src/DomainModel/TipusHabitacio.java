@@ -33,14 +33,14 @@ public class TipusHabitacio {
     }
     
     public Integer numDisp(Date dIni, Date dFi, String nomHotel, Integer numOcup) {
-        if (this.capacitat < numOcup) return 0;
+
         int num = 0;
-        
-        for (int i = 0; i < habitacions.size(); ++i) {
-            if (habitacions.get(i).esDelHotel(nomHotel) 
-                    && habitacions.get(i).estaDisp(dIni, dFi)) ++num;
+        if (this.capacitat >= numOcup) {
+            for (int i = 0; i < habitacions.size(); ++i) {
+                if (habitacions.get(i).esDelHotel(nomHotel) &&
+                        habitacions.get(i).estaDisp(dIni, dFi)) ++num;
+            }
         }
-        
         return num;
     }
    
