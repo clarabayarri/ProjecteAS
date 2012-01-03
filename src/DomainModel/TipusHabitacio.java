@@ -43,4 +43,13 @@ public class TipusHabitacio {
         
         return num;
     }
+    
+    public Integer obteNumHabLliure(String nomHotel, Date dIni, Date dFi) {
+        for (int i = 0; i < habitacions.size(); ++i) {
+            if (habitacions.get(i).esDelHotel(nomHotel) &&
+                    habitacions.get(i).estaDisp(dIni, dFi)) 
+                return habitacions.get(i).getNumero();
+        }
+        return -1;
+    }
 }
