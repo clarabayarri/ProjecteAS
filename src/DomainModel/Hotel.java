@@ -24,10 +24,12 @@ public class Hotel {
         this.categoria = Cat;
         this.nom = nomH;
     }
-    
+/*    
     public Integer getNumero() { 
         
     }
+     * 
+     */
     
     public String getNom(){
         return this.nom;
@@ -43,7 +45,7 @@ public class Hotel {
         //Integer dies = (dataFi.getTime() - datainici.getTime())/TEMPS; 
         return suma;
     }
-    
+/*    
     public Integer obteNumeroHabLliure(String tipushab, Date datainici, Date dataFi){
         for(int i = 0;i< preus.size();++i){
             if(preus.get(i).isOfType(tipushab)) {
@@ -60,7 +62,7 @@ public class Hotel {
         }
     }
     
-    
+    */
     
     
     
