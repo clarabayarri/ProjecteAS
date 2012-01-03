@@ -6,6 +6,7 @@ package DomainControllers;
 
 import DataInterfaces.ICtrlHotel;
 import DataInterfaces.ICtrlPoblacio;
+import DataInterfaces.ICtrlTipusHabitacio;
 import DomainFactories.CtrlDataFactory;
 import DomainModel.Hotel;
 import DomainModel.Poblacio;

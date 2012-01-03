@@ -8,6 +8,7 @@ import DataInterfaces.ICtrlClient;
 import DataInterfaces.ICtrlHabitacio;
 import DataInterfaces.ICtrlHotel;
 import DataInterfaces.ICtrlPoblacio;
+import DataInterfaces.ICtrlTipusHabitacio;
 
 /**
  *
@@ -19,6 +20,7 @@ public class CtrlDataFactory {
     private ICtrlHotel ctrlHotel;
     private ICtrlClient ctrlClient;
     private ICtrlHabitacio ctrlHabitacio;
+    private ICtrlTipusHabitacio ctrlTipusHabitacio;
     
     
     private CtrlDataFactory() {};
@@ -29,7 +31,7 @@ public class CtrlDataFactory {
     }
     
     public ICtrlPoblacio getCtrlPoblacio() {
-    //TODO    if (ctrlPoblacio == null) ctrlPoblacio = new ICtrlPoblacio();
+        //TODO    if (ctrlPoblacio == null) ctrlPoblacio = new ICtrlPoblacio();
         return ctrlPoblacio;
     }
     
@@ -48,5 +50,8 @@ public class CtrlDataFactory {
         return ctrlHabitacio;
     }
     
+    public ICtrlTipusHabitacio getCtrlTipusHabitacio() {
+        return ctrlTipusHabitacio;
+    }
     
 }
