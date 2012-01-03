@@ -20,7 +20,6 @@ public class CtrlDataFactory {
     private ICtrlHotel ctrlHotel;
     private ICtrlClient ctrlClient;
     private ICtrlHabitacio ctrlHabitacio;
-    private ICtrlTipusHabitacio ctrlTipusHabitacio;
     
     
     private CtrlDataFactory() {};
@@ -49,9 +48,5 @@ public class CtrlDataFactory {
     //TODO    if (ctrlHabitacio == null) ctrlHabitacio = new ICtrlHabitacio();
         return ctrlHabitacio;
     }
-    
-    public ICtrlTipusHabitacio getCtrlTipusHabitacio() {
-        return ctrlTipusHabitacio;
-    }
-    
+        
 }
