@@ -7,12 +7,10 @@ package DomainControllers;
 import DataInterfaces.ICtrlClient;
 import DataInterfaces.ICtrlHotel;
 import DataInterfaces.ICtrlPoblacio;
-import DataInterfaces.ICtrlTipusHabitacio;
 import DomainFactories.CtrlDataFactory;
 import DomainModel.Client;
 import DomainModel.Hotel;
 import DomainModel.Poblacio;
-import DomainModel.TipusHabitacio;
 import TupleTypes.DadesHabitacio;
 import TupleTypes.DadesHotel;
 import TupleTypes.DadesReserva;
@@ -59,13 +57,13 @@ public class CasUsReservarHabitacio {
     public DadesHabitacio seleccionarHabitacio(String hotel, String tipusHab) {
         
         CtrlDataFactory cdf = CtrlDataFactory.getInstance();
-        ICtrlTipusHabitacio cth = cdf.getCtrlTipusHabitacio();
-        TipusHabitacio th = cth.get(tipusHab);
+        ICtrlHotel ch = cdf.getCtrlHotel();
+        Hotel h = ch.get(hotel);
         nomHotel = hotel;
         tipusHabitacio = tipusHab;
-        numHabitacio = th.obteNumHabLliure(nomHotel, dataInici, dataFi);
-        preuTotal = th.obtePreuTotal(dataInici, dataFi);
-        return new DadesHabitacio(hotel, numHabitacio, preuTotal);
+        numHabitacio = h.obteNumeroHabLliure(nomHotel, dataInici, dataFi);
+        preuTotal = h.obtePreuTotal(tipusHabitacio, dataInici, dataFi);
+        return new DadesHabitacio(nomHotel, numHabitacio, preuTotal);
     }
     
     public DadesReserva introduirDni(String dni) {

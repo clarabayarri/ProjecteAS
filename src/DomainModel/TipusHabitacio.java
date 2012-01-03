@@ -16,14 +16,12 @@ public class TipusHabitacio {
     Integer capacitat;
     String descripcio;
     ArrayList<Habitacio> habitacions;
-    PreuTipusHabitacio preu;
     
     public TipusHabitacio(String nom, Integer capacitat, String descripcio) {
         this.nom = nom;
         this.capacitat = capacitat;
         this.descripcio = descripcio;
         this.habitacions = new ArrayList<Habitacio>();
-        this.preu = new PreuTipusHabitacio();
     }
     
     public String getNom() {
@@ -45,20 +43,5 @@ public class TipusHabitacio {
         
         return num;
     }
-    
-    public Integer obteNumHabLliure(String nomHotel, Date dIni, Date dFi) {
-        for (int i = 0; i < habitacions.size(); ++i) {
-            if (habitacions.get(i).esDelHotel(nomHotel) &&
-                    habitacions.get(i).estaDisp(dIni, dFi)) 
-                return habitacions.get(i).getNumero();
-        }
-        return -1;
-    }
-    
-    public Float obtePreuTotal(Date dataInici, Date dataFi) {
-        //TODO: de moment utilitza deprecated methods
-        return preu.getPreu() * (dataFi.getDay() - dataInici.getDay());
-    }
-
    
 }
