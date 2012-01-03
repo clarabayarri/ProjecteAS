@@ -87,4 +87,16 @@ public class PreuTipusHabitacio {
     public String getNomTipus() {
         return this.tipus.getNom();
     }
+    
+    /**
+     * Obte el numero d'una habitacio d'aquest tipus lliure entre les dates 
+     * senyalades
+     * @param nomHotel
+     * @param dIni
+     * @param dFi
+     * @return 
+     */
+    public Integer getNumeroHabLliure(String nomHotel, Date dIni, Date dFi){
+        return 0;
+    }
 }
