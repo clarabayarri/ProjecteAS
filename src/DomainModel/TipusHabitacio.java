@@ -16,12 +16,14 @@ public class TipusHabitacio {
     Integer capacitat;
     String descripcio;
     ArrayList<Habitacio> habitacions;
+    PreuTipusHabitacio preu;
     
     public TipusHabitacio(String nom, Integer capacitat, String descripcio) {
         this.nom = nom;
         this.capacitat = capacitat;
         this.descripcio = descripcio;
         this.habitacions = new ArrayList<Habitacio>();
+        this.preu = new PreuTipusHabitacio();
     }
     
     public String getNom() {
@@ -52,4 +54,11 @@ public class TipusHabitacio {
         }
         return -1;
     }
+    
+    public Float obtePreuTotal(Date dataInici, Date dataFi) {
+        //TODO: de moment utilitza deprecated methods
+        return preu.getPreu() * (dataFi.getDay() - dataInici.getDay());
+    }
+
+   
 }
