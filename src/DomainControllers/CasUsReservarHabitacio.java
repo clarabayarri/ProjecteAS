@@ -4,9 +4,13 @@
  */
 package DomainControllers;
 
+import DataInterfaces.ICtrlHotel;
 import DataInterfaces.ICtrlPoblacio;
 import DomainFactories.CtrlDataFactory;
+import DomainModel.Hotel;
 import DomainModel.Poblacio;
+import DomainModel.TipusHabitacio;
+import TupleTypes.DadesHabitacio;
 import TupleTypes.DadesHotel;
 import java.util.ArrayList;
 import java.util.Date;
@@ -45,9 +49,17 @@ public class CasUsReservarHabitacio {
         buscar.executar();
         return buscar.obteResultat();   
     }
-     
-     
     
+    public DadesHabitacio seleccionarHabitacio(String hotel, String tipusHab) {
+        
+        CtrlDataFactory cdf = CtrlDataFactory.getInstance();
+        ICtrlTipusHabitacio cth = cdf.getCtrlTipusHabitacio();
+        TipusHabitacio th = cth.get(tipusHab);
+        nomHotel = hotel;
+        tipusHabitacio = tipusHab;
+        numHabitacio = th.obteNumHabLliure(nomHotel, dataInici, dataFi);
+        return new DadesHabitacio(hotel, numHabitacio, preuTotal);
+    }
     
     public void pagament(String numTarg, Date dCad) {
         //TODO cridar servei de pagament
