@@ -10,6 +10,15 @@ import java.util.ArrayList;
  */
 public class ReservarHabitacioView {
     
+    /**
+     * Mostra la primera pantalla
+     * @param poblacions 
+     * @author clara
+     */
+    public void mostraPoblacions(ArrayList<String> poblacions) {
+        Window1 window = new Window1();
+    }
+    
     public void mostraHabitacions(ArrayList<DadesHotel> dades) {
         
     }

@@ -18,7 +18,13 @@ public class CtrlPoblacio implements ICtrlPoblacio{
 
     @Override
     public ArrayList<Poblacio> tots() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        //TODO: this is a stub.
+        
+        ArrayList<Poblacio> resultat = new ArrayList<Poblacio>();
+        Poblacio p = new Poblacio("Barcelona");
+        resultat.add(p);
+        
+        return resultat;
     }
     
 }

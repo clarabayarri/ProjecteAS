@@ -97,5 +97,9 @@ public class PreuTipusHabitacio {
     public String getNomTipus() {
         return this.tipus.getNom();
     }
+    
+    public Integer obteNumeroHabLliure(String nomHotel, Date dIni, Date dFi) {
+        return 0;
+    }
 
 }

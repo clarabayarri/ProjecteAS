@@ -4,6 +4,8 @@
  */
 package asg3;
 
+import Presentation.ReservarHabitacioController;
+
 /**
  *
  * @author clara
@@ -15,5 +17,7 @@ public class ASG3 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        ReservarHabitacioController controlador = new ReservarHabitacioController();
     }
 }

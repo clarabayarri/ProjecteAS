@@ -16,6 +16,7 @@ public class ReservarHabitacioController {
     
     /**
      * Creadora encarregada de crear les instàncies de domini i vista
+     * @author clara
      */
     public ReservarHabitacioController() {
         domini = new CasUsReservarHabitacio();
@@ -26,6 +27,8 @@ public class ReservarHabitacioController {
         ArrayList<String> poblacions = domini.obtePoblacions();
         
         //TODO: omplir la llista amb poblacions
+        
+        
     }
     
     /**
@@ -34,6 +37,7 @@ public class ReservarHabitacioController {
      * @param dIni
      * @param dFi
      * @param numOcup 
+     * @author clara
      */
     public void PrOkObteHabitacions(String pob, Date dIni, Date dFi, int numOcup) {
         //comprovació de les dates
@@ -93,13 +97,13 @@ public class ReservarHabitacioController {
      * Confirmació de final
      */
     public void PrOkMissatgeFi() {
-        
+        vista.tanca();
     }
     
     /**
      * Petició de cancel·lació
      */
     public void PrCancel() {
-        
+        vista.tanca();
     }
 }
