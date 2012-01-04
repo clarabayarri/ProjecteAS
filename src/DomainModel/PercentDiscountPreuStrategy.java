@@ -28,6 +28,22 @@ public class PercentDiscountPreuStrategy implements IPreuStrategy {
     }
     
     /**
+     * Setter del percentatge
+     * @param perc 
+     */
+    public void setPerc(float perc){
+        this.perc = perc;
+    }
+    
+    /**
+     * Getter del percentatge
+     * @return 
+     */
+    public float getPerc() {
+        return this.perc;
+    }
+    
+    /**
      * Implementacio propia del calculaPreu, on es multiplica el descompte 
      * percentual pel preu base
      * @param p

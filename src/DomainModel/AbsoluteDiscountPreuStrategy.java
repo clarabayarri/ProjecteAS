@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package DomainModel;
 
 /**
@@ -24,6 +20,22 @@ public class AbsoluteDiscountPreuStrategy implements IPreuStrategy {
      * @param descompte 
      */
     public AbsoluteDiscountPreuStrategy(float descompte){
+        this.descompte = descompte;
+    }
+    
+    /**
+     * Getter de l'atribut descompte
+     * @return 
+     */
+    public float getDescompte() {
+        return this.descompte;
+    }
+    
+    /**
+     * Setter de l'atribut descompte
+     * @param descompte 
+     */
+    public void setDescompte(float descompte){
         this.descompte = descompte;
     }
     

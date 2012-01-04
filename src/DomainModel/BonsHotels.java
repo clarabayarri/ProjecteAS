@@ -41,11 +41,27 @@ public class BonsHotels {
     }
     
     /**
+     * Getter de quota fixa
+     * @return 
+     */
+    public float getQuotaFixa() {
+        return this.quotaFixa;
+    }
+    
+    /**
      * Assigna una quotaVariable
      * @param quotaVariable 
      */
     public void setQuotaVariable(float quotaVariable) {
         this.quotaVariable = quotaVariable;
+    }
+    
+    /**
+     * Getter de quota variable
+     * @return 
+     */
+    public float getQuotaVariable() {
+        return this.quotaVariable;
     }
     
     /**

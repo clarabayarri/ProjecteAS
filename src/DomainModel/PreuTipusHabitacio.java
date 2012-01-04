@@ -11,6 +11,7 @@ import java.util.Date;
  * @author clara
  */
 public class PreuTipusHabitacio {
+    
     private float preu;
     private TipusHabitacio tipus;
     private IPreuStrategy strategy;
@@ -29,6 +30,16 @@ public class PreuTipusHabitacio {
     public void setPreu(float preu) {
         this.preu = preu;
     }
+
+    /**
+     * Recupera el preu base d'aquest preutipushabitacio.<br />
+     * En el lliurament 1, hi ha una errata que diu que el tipus del retorn és 
+     * integer, quan ha de ser float.
+     * @return preu base
+     */
+    public float getPreu() {
+        return this.preu;
+    }
     
     /**
      * Assigna un tipus al preutipushabitacio
@@ -39,14 +50,13 @@ public class PreuTipusHabitacio {
     }
     
     /**
-     * Recupera el preu base d'aquest preutipushabitacio.<br />
-     * En el lliurament 1, hi ha una errata que diu que el tipus del retorn és 
-     * integer, quan ha de ser float.
-     * @return preu base
+     * Getter del tipus d'habitació corresponent
+     * @return 
      */
-    public float getPreu() {
-        return this.preu;
+    public TipusHabitacio getTipus() {
+        return this.tipus;
     }
+    
     
     /**
      * Calcula el preu a partir de lestrategia associada
@@ -87,16 +97,5 @@ public class PreuTipusHabitacio {
     public String getNomTipus() {
         return this.tipus.getNom();
     }
-    
-    /**
-     * Obte el numero d'una habitacio d'aquest tipus lliure entre les dates 
-     * senyalades
-     * @param nomHotel
-     * @param dIni
-     * @param dFi
-     * @return 
-     */
-    public Integer getNumeroHabLliure(String nomHotel, Date dIni, Date dFi){
-        return 0;
-    }
+
 }
