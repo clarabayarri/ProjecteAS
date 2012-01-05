@@ -18,7 +18,7 @@ public class ReservarHabitacioView {
     private static Window1 window1;
     private static Window2 window2;
     private static Window3 window3;
-    //private static Window4 window4;
+    private static Window4 window4;
     private static Window5 window5;
     
     private static void createAndShowGUI1() {
