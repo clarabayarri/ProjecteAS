@@ -29,4 +29,45 @@ public class Reserva {
     public boolean esSolapa(Date dIni, Date dFi) {        
         return dIni.before(dataFi) && dFi.after(dataInici); 
     }
+
+    public Date getDataFi() {
+        return dataFi;
+    }
+
+    public void setDataFi(Date dataFi) {
+        this.dataFi = dataFi;
+    }
+
+    public Date getDataInici() {
+        return dataInici;
+    }
+
+    public void setDataInici(Date dataInici) {
+        this.dataInici = dataInici;
+    }
+
+    public Date getDataReserva() {
+        return dataReserva;
+    }
+
+    public void setDataReserva(Date dataReserva) {
+        this.dataReserva = dataReserva;
+    }
+
+    public String getIdReserva() {
+        return idReserva;
+    }
+
+    public void setIdReserva(String idReserva) {
+        this.idReserva = idReserva;
+    }
+
+    public Float getPreuTotal() {
+        return preuTotal;
+    }
+
+    public void setPreuTotal(Float preuTotal) {
+        this.preuTotal = preuTotal;
+    }
+    
 }
