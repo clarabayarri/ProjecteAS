@@ -21,11 +21,7 @@ public class Habitacio {
         this.numero = numero;
         this.reserves = new ArrayList<Reserva>();
     }
-    
-    public Integer getNumero() {
-       return numero; 
-    }
-    
+        
     public boolean estaDisp(Date dataInici, Date dataFi) {
         for (int i = 0; i < reserves.size(); ++i) {
             if (reserves.get(i).esSolapa(dataInici, dataFi)) return false;
@@ -40,4 +36,30 @@ public class Habitacio {
     boolean esDelHotel(String nomHotel) {
         return this.hotel.getNom().equals(nomHotel);
     }
+
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+    }
+
+    public Integer getNumero() {
+        return numero;
+    }
+
+    public void setNumero(Integer numero) {
+        this.numero = numero;
+    }
+
+    public ArrayList<Reserva> getReserves() {
+        return reserves;
+    }
+
+    public void setReserves(ArrayList<Reserva> reserves) {
+        this.reserves = reserves;
+    }
+    
+    
 }
