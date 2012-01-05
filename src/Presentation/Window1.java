@@ -10,6 +10,8 @@
  */
 package Presentation;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author clara
@@ -19,6 +21,20 @@ public class Window1 extends javax.swing.JFrame {
     /** Creates new form Window1 */
     public Window1() {
         initComponents();
+    }
+    
+    /**
+     * Carrega la llista de poblacions del sistema
+     * @param poblacions 
+     */
+    public void loadPoblacions(ArrayList<String> poblacions) {
+        //Actualitza la llista d'elements a mostra per les poblacions del sistema
+        String[] list = new String[poblacions.size()];
+        for(int i = 0; i < poblacions.size(); ++i){
+            list[i] = poblacions.get(i);
+        }
+        poblacioComboBox.setModel(new javax.swing.DefaultComboBoxModel(list));
+        
     }
 
     /** This method is called from within the constructor to
@@ -32,19 +48,17 @@ public class Window1 extends javax.swing.JFrame {
 
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
-        calendarComponent1 = new com.imagine.component.calendar.CalendarComponent();
-        jLabel3 = new javax.swing.JLabel();
-        calendarComponent2 = new com.imagine.component.calendar.CalendarComponent();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
+        poblacioLabel = new javax.swing.JLabel();
+        dIniLabel = new javax.swing.JLabel();
+        poblacioComboBox = new javax.swing.JComboBox();
+        dIniCalendar = new com.imagine.component.calendar.CalendarComponent();
+        dFiLabel = new javax.swing.JLabel();
+        dFiCalendar = new com.imagine.component.calendar.CalendarComponent();
+        numocLabel = new javax.swing.JLabel();
+        numocTextField = new javax.swing.JTextField();
+        messageArea = new javax.swing.JLabel();
+        confirmButton = new javax.swing.JButton();
+        cancelButton = new javax.swing.JButton();
 
         jLabel5.setText("jLabel5");
 
@@ -52,40 +66,38 @@ public class Window1 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Població");
+        poblacioLabel.setText("Població");
 
-        jLabel2.setText("Data d'inici");
+        dIniLabel.setText("Data d'inici");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        poblacioComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jLabel3.setText("Data de finalització");
+        dFiLabel.setText("Data de finalització");
 
-        jLabel4.setText("Número d'ocupants");
+        numocLabel.setText("Número d'ocupants");
 
-        jTextField1.setText("jTextField1");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        numocTextField.setText("jTextField1");
+        numocTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                numocTextFieldActionPerformed(evt);
             }
         });
 
-        jLabel7.setText("Message area");
+        messageArea.setText("Message area");
 
-        jButton1.setText("D'acord");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        confirmButton.setText("D'acord");
+        confirmButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                confirmButtonActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Cancel·la");
-
-        jList1.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+        cancelButton.setText("Cancel·la");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
         });
-        jScrollPane1.setViewportView(jList1);
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -97,34 +109,32 @@ public class Window1 extends javax.swing.JFrame {
                     .add(layout.createSequentialGroup()
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
                             .add(org.jdesktop.layout.GroupLayout.LEADING, layout.createSequentialGroup()
-                                .add(jLabel2)
+                                .add(dIniLabel)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 158, Short.MAX_VALUE)
-                                .add(calendarComponent1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 227, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                .add(dIniCalendar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 227, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                             .add(org.jdesktop.layout.GroupLayout.LEADING, layout.createSequentialGroup()
-                                .add(jLabel1)
+                                .add(poblacioLabel)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 180, Short.MAX_VALUE)
-                                .add(jComboBox1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 223, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                .add(poblacioComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 223, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                             .add(layout.createSequentialGroup()
-                                .add(jLabel3)
+                                .add(dFiLabel)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 107, Short.MAX_VALUE)
                                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                                    .add(calendarComponent2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 227, Short.MAX_VALUE)
-                                    .add(jTextField1))))
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 73, Short.MAX_VALUE)
-                        .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(40, 40, 40))
+                                    .add(dFiCalendar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 227, Short.MAX_VALUE)
+                                    .add(numocTextField))))
+                        .add(156, 156, 156))
                     .add(layout.createSequentialGroup()
-                        .add(jLabel4)
+                        .add(numocLabel)
                         .addContainerGap(489, Short.MAX_VALUE))))
             .add(layout.createSequentialGroup()
                 .add(147, 147, 147)
-                .add(jLabel7, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 258, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(messageArea, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 258, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(227, Short.MAX_VALUE))
             .add(layout.createSequentialGroup()
                 .add(85, 85, 85)
-                .add(jButton1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 120, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(confirmButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 120, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 160, Short.MAX_VALUE)
-                .add(jButton2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 120, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(cancelButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 120, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(147, 147, 147))
         );
         layout.setVerticalGroup(
@@ -132,47 +142,47 @@ public class Window1 extends javax.swing.JFrame {
             .add(layout.createSequentialGroup()
                 .addContainerGap()
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel1)
-                    .add(jComboBox1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(poblacioLabel)
+                    .add(poblacioComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .add(26, 26, 26)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jLabel2)
-                    .add(calendarComponent1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 145, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(dIniLabel)
+                    .add(dIniCalendar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 145, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .add(37, 37, 37)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(layout.createSequentialGroup()
-                        .add(jLabel3)
+                        .add(dFiLabel)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 146, Short.MAX_VALUE)
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                            .add(jLabel4)
-                            .add(jTextField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                            .add(numocLabel)
+                            .add(numocTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                         .add(34, 34, 34))
                     .add(layout.createSequentialGroup()
-                        .add(calendarComponent2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 145, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(dFiCalendar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 145, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(79, 79, 79)))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jLabel7)
+                .add(messageArea)
                 .add(18, 18, 18)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jButton1)
-                    .add(jButton2))
+                    .add(confirmButton)
+                    .add(cancelButton))
                 .add(47, 47, 47))
-            .add(layout.createSequentialGroup()
-                .add(161, 161, 161)
-                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(284, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void numocTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numocTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_numocTextFieldActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_confirmButtonActionPerformed
+
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cancelButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -210,20 +220,18 @@ public class Window1 extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.imagine.component.calendar.CalendarComponent calendarComponent1;
-    private com.imagine.component.calendar.CalendarComponent calendarComponent2;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JButton cancelButton;
+    private javax.swing.JButton confirmButton;
+    private com.imagine.component.calendar.CalendarComponent dFiCalendar;
+    private javax.swing.JLabel dFiLabel;
+    private com.imagine.component.calendar.CalendarComponent dIniCalendar;
+    private javax.swing.JLabel dIniLabel;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JList jList1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel messageArea;
+    private javax.swing.JLabel numocLabel;
+    private javax.swing.JTextField numocTextField;
+    private javax.swing.JComboBox poblacioComboBox;
+    private javax.swing.JLabel poblacioLabel;
     // End of variables declaration//GEN-END:variables
 }

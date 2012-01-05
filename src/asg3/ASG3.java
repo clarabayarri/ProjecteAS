@@ -1,10 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package asg3;
 
 import Presentation.ReservarHabitacioController;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
@@ -17,7 +15,19 @@ public class ASG3 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
-        ReservarHabitacioController controlador = new ReservarHabitacioController();
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (ClassNotFoundException e) {
+        } catch (InstantiationException e) {
+        } catch (IllegalAccessException e) {
+        } catch (UnsupportedLookAndFeelException e) {
+        }
+    
+        javax.swing.SwingUtilities.invokeLater (
+            new Runnable() {
+                public void run() {
+                    ReservarHabitacioController.getInstance();
+                }
+        });
     }
 }

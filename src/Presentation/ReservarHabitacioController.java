@@ -11,6 +11,7 @@ import java.util.Date;
  */
 public class ReservarHabitacioController {
     
+    private static ReservarHabitacioController singletonObject = null;
     private CasUsReservarHabitacio domini;
     private ReservarHabitacioView vista;
     
@@ -18,17 +19,27 @@ public class ReservarHabitacioController {
      * Creadora encarregada de crear les instàncies de domini i vista
      * @author clara
      */
-    public ReservarHabitacioController() {
+    private ReservarHabitacioController() {
         domini = new CasUsReservarHabitacio();
-        vista = new ReservarHabitacioView();
+        vista = new ReservarHabitacioView(this);
         
-        //TODO: Crear la pantalla 1
-        
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                preparaPoblacions();
+            }
+        });
+    }
+    
+    public void preparaPoblacions() {
         ArrayList<String> poblacions = domini.obtePoblacions();
-        
-        //TODO: omplir la llista amb poblacions
-        
-        
+        vista.mostraPoblacions(poblacions);
+    }
+    
+    public static ReservarHabitacioController getInstance() {
+        if(singletonObject == null){
+            singletonObject = new ReservarHabitacioController();
+        }
+        return singletonObject;
     }
     
     /**
