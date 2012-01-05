@@ -24,13 +24,6 @@ public class TipusHabitacio {
         this.habitacions = new ArrayList<Habitacio>();
     }
     
-    public String getNom() {
-       return nom;
-    }
-    
-    public Integer getCapacitat() {
-        return capacitat;
-    }
     
     public Integer numDisp(Date dIni, Date dFi, String nomHotel, Integer numOcup) {
 
@@ -43,5 +36,36 @@ public class TipusHabitacio {
         }
         return num;
     }
-   
+
+    public Integer getCapacitat() {
+        return capacitat;
+    }
+
+    public void setCapacitat(Integer capacitat) {
+        this.capacitat = capacitat;
+    }
+
+    public String getDescripcio() {
+        return descripcio;
+    }
+
+    public void setDescripcio(String descripcio) {
+        this.descripcio = descripcio;
+    }
+
+    public ArrayList<Habitacio> getHabitacions() {
+        return habitacions;
+    }
+
+    public void setHabitacions(ArrayList<Habitacio> habitacions) {
+        this.habitacions = habitacions;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
 }
