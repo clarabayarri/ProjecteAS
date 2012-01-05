@@ -2,11 +2,7 @@ package Presentation;
 
 import TupleTypes.DadesHotel;
 import TupleTypes.DadesReserva;
-import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.util.ArrayList;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 
 /**
  *

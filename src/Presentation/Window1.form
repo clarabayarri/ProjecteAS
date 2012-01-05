@@ -145,6 +145,9 @@
       </Properties>
     </Component>
     <Component class="com.imagine.component.calendar.CalendarComponent" name="dIniCalendar">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="dIniCalendar.addDateListener(this);"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="dFiLabel">
       <Properties>

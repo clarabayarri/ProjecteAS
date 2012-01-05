@@ -11,12 +11,13 @@
 package Presentation;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
  * @author clara
  */
-public class Window1 extends javax.swing.JFrame {
+public class Window1 extends javax.swing.JFrame implements com.imagine.component.calendar.DateListener {
 
     /** Creates new form Window1 */
     public Window1() {
@@ -71,6 +72,8 @@ public class Window1 extends javax.swing.JFrame {
         dIniLabel.setText("Data d'inici");
 
         poblacioComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        dIniCalendar.addDateListener(this);
 
         dFiLabel.setText("Data de finalització");
 
@@ -234,4 +237,11 @@ public class Window1 extends javax.swing.JFrame {
     private javax.swing.JComboBox poblacioComboBox;
     private javax.swing.JLabel poblacioLabel;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void dateChanged(Date date) {
+        dFiCalendar.setDate(date);
+    }
+
+    
 }
