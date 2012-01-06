@@ -2,6 +2,7 @@ package Presentation;
 
 import DomainControllers.CasUsReservarHabitacio;
 import TupleTypes.DadesHotel;
+import TupleTypes.DadesReserva;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -73,7 +74,12 @@ public class ReservarHabitacioController {
         //intentem aconseguir les dades dels hotels
         try {
             ArrayList<DadesHotel> resultat = domini.buscarHabitacio(pob, dIni, dFi, numOcup);
-            vista.mostraHabitacions(resultat);
+            DadesReserva basicData = new DadesReserva();
+            basicData.pob = pob;
+            basicData.dIni = dIni;
+            basicData.dFi = dFi;
+            basicData.numOc = numOcup;
+            vista.mostraHabitacions(basicData, resultat);
         }
         catch (Exception e) {
             //capturem les excepcions de domini

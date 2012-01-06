@@ -52,10 +52,10 @@ public class ReservarHabitacioView {
         controlador.PrOkObteHabitacions(poblacio, dIni, dFi, numOcup);
     }
     
-    public void mostraHabitacions(ArrayList<DadesHotel> dades) {
+    public void mostraHabitacions(DadesReserva basicData, ArrayList<DadesHotel> dades) {
         window1.setVisible(false);
         window2 = new Window2();
-        
+        window2.loadData(basicData, dades);
         window2.setVisible(true);
     }
     

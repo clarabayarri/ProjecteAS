@@ -11,6 +11,7 @@ public class DadesReserva {
     public String pob;
     public Date dIni;
     public Date dFi;
+    public Integer numOc;
     public String nomHotel;
     public String nomTipusHab;
     public String dni;

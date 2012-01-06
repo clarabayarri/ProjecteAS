@@ -11,6 +11,7 @@
 package Presentation;
 
 import TupleTypes.DadesHotel;
+import TupleTypes.DadesReserva;
 import java.util.ArrayList;
 
 /**
@@ -176,7 +177,12 @@ public class Window2 extends javax.swing.JFrame {
         });
     }
     
-    public void loadData(ArrayList<DadesHotel> data) {
+    public void loadData(DadesReserva basicData, ArrayList<DadesHotel> data) {
+        poblacioValueLabel.setText(basicData.pob);
+        dIniValueLabel.setText(basicData.dIni.toString());
+        dFiValueLabel.setText(basicData.dIni.toString());
+        numOcValueLabel.setText(basicData.numOc.toString());
+        
         for(DadesHotel hotel : data) {
             HotelView vistaHotel = new HotelView();
             vistaHotel.loadData(hotel);
