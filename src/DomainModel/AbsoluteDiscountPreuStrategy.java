@@ -6,6 +6,7 @@ package DomainModel;
  */
 public class AbsoluteDiscountPreuStrategy implements IPreuStrategy {
 
+    private PreuTipusHabitacioId id;
     private float descompte;
     
     /**
@@ -21,6 +22,22 @@ public class AbsoluteDiscountPreuStrategy implements IPreuStrategy {
      */
     public AbsoluteDiscountPreuStrategy(float descompte){
         this.descompte = descompte;
+    }
+    
+    /**
+     * Setter de l'identificador del preutipushabitacio associat
+     * @param id 
+     */
+    public void setId(PreuTipusHabitacioId id){
+        this.id = id;
+    }
+    
+    /**
+     * Getter de l'identificador del preutipushabitacio associat
+     * @return 
+     */
+    public PreuTipusHabitacioId getId() {
+        return this.id;
     }
     
     /**
