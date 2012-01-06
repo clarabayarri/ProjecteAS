@@ -30,7 +30,7 @@ public class ReservarHabitacioController {
         });
     }
     
-    public void preparaPoblacions() {
+    private void preparaPoblacions() {
         ArrayList<String> poblacions = domini.obtePoblacions();
         vista.mostraPoblacions(poblacions);
     }

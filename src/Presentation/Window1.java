@@ -19,8 +19,10 @@ import java.util.Date;
  */
 public class Window1 extends javax.swing.JFrame implements com.imagine.component.calendar.DateListener {
 
+    private ReservarHabitacioView viewController;
     /** Creates new form Window1 */
-    public Window1() {
+    public Window1(ReservarHabitacioView controller) {
+        this.viewController = controller;
         initComponents();
     }
     
@@ -181,10 +183,17 @@ public class Window1 extends javax.swing.JFrame implements com.imagine.component
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_confirmButtonActionPerformed
 
+    /**
+     * Tractar quan es prem el botó cancel·lar
+     * @param evt 
+     * @author clara
+     */
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
-        // TODO add your handling code here:
+        // Tanca l'aplicació
+        viewController.tanca();
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     /**
@@ -214,13 +223,7 @@ public class Window1 extends javax.swing.JFrame implements com.imagine.component
         }
         //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-
-            public void run() {
-                new Window1().setVisible(true);
-            }
-        });
+        
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelButton;

@@ -3,6 +3,7 @@ package Presentation;
 import TupleTypes.DadesHotel;
 import TupleTypes.DadesReserva;
 import java.util.ArrayList;
+import javax.swing.JFrame;
 
 /**
  *
@@ -16,15 +17,19 @@ public class ReservarHabitacioView {
     private static Window3 window3;
     private static Window4 window4;
     private static Window5 window5;
+    private static JFrame currentWindow;
     
     private static void createAndShowGUI1() {
-        //Crear i mostrar la finestra 1
-        window1 = new Window1();
+        //Mostrar la finestra 1
         window1.setVisible(true);
+        
     }
     
     public ReservarHabitacioView(ReservarHabitacioController controlador){
         this.controlador = controlador;
+        
+        window1 = new Window1(this);
+        currentWindow = window1;
         
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
@@ -44,11 +49,17 @@ public class ReservarHabitacioView {
         window1.loadPoblacions(poblacions);
     }
     
+    
+    
     public void mostraHabitacions(ArrayList<DadesHotel> dades) {
+        window1.setVisible(false);
+        window2 = new Window2();
+        currentWindow = window2;
         
+        window2.setVisible(true);
     }
     
-    public void mostraPreu(int preu) {
+    public void mostraPreu(DadesReserva dades) {
         
     }
     
@@ -75,6 +86,6 @@ public class ReservarHabitacioView {
      * Tanca la finestra de l'aplicació
      */
     public void tanca() {
-        
+        System.exit(0);
     }
 }
