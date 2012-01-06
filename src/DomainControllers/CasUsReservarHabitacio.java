@@ -54,7 +54,7 @@ public class CasUsReservarHabitacio {
         return buscar.obteResultat();   
     }
     
-    public DadesHabitacio seleccionarHabitacio(String hotel, String tipusHab) {
+    public DadesReserva seleccionarHabitacio(String hotel, String tipusHab) {
         
         CtrlDataFactory cdf = CtrlDataFactory.getInstance();
         ICtrlHotel ch = cdf.getCtrlHotel();
@@ -63,7 +63,14 @@ public class CasUsReservarHabitacio {
         tipusHabitacio = tipusHab;
         numHabitacio = h.obteNumeroHabLliure(nomHotel, dataInici, dataFi);
         preuTotal = h.obtePreuTotal(tipusHabitacio, dataInici, dataFi);
-        return new DadesHabitacio(nomHotel, numHabitacio, preuTotal);
+        DadesReserva result = new DadesReserva();
+        result.dIni = this.dataInici;
+        result.dFi = this.dataFi;
+        result.nomHotel = this.nomHotel;
+        result.nomTipusHab = this.tipusHabitacio;
+        result.pob = this.poblacio;
+        result.preuTotal = this.preuTotal;
+        return result;
     }
     
     public DadesReserva introduirDni(String dni) {
