@@ -17,6 +17,10 @@ public class TipusHabitacio {
     String descripcio;
     ArrayList<Habitacio> habitacions;
     
+    public TipusHabitacio() {
+        
+    }
+    
     public TipusHabitacio(String nom, Integer capacitat, String descripcio) {
         this.nom = nom;
         this.capacitat = capacitat;
