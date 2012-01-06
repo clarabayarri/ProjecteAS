@@ -1,17 +1,14 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package DomainModel;
 
 import java.util.Date;
 
 /**
- *
+ * Classe que relaciona el preu d'un tipus d'habitació en un hotel
  * @author clara
  */
 public class PreuTipusHabitacio {
     
+    private PreuTipusHabitacioId id;
     private float preu;
     private TipusHabitacio tipus;
     private IPreuStrategy strategy;
@@ -24,11 +21,19 @@ public class PreuTipusHabitacio {
     }
     
     /**
-     * Assigna un preu base
-     * @param preu 
+     * Getter de l'identificador, requerit per Hibernate
+     * @return 
      */
-    public void setPreu(float preu) {
-        this.preu = preu;
+    public PreuTipusHabitacioId getId(){
+        return this.id;
+    }
+    
+    /**
+     * Setter de l'identificador, requerit per Hibernate
+     * @param id 
+     */
+    public void setId(PreuTipusHabitacioId id){
+        this.id = id;
     }
 
     /**
@@ -42,11 +47,11 @@ public class PreuTipusHabitacio {
     }
     
     /**
-     * Assigna un tipus al preutipushabitacio
-     * @param tipus 
+     * Setter del preu base
+     * @param preu 
      */
-    public void setTipus(TipusHabitacio tipus) {
-        this.tipus = tipus;
+    public void setPreu(float preu) {
+        this.preu = preu;
     }
     
     /**
@@ -57,6 +62,29 @@ public class PreuTipusHabitacio {
         return this.tipus;
     }
     
+    /**
+     * Assigna un tipus al preutipushabitacio
+     * @param tipus 
+     */
+    public void setTipus(TipusHabitacio tipus) {
+        this.tipus = tipus;
+    }
+    
+    /**
+     * Getter de l'estratègia associada
+     * @return 
+     */
+    public IPreuStrategy getStrategy() {
+        return this.strategy;
+    }
+    
+    /**
+     * Setter de l'estratègia associada
+     * @param strategy 
+     */
+    public void setStrategy(IPreuStrategy strategy) {
+        this.strategy = strategy;
+    }
     
     /**
      * Calcula el preu a partir de lestrategia associada
@@ -78,6 +106,14 @@ public class PreuTipusHabitacio {
     }
     
     /**
+     * Retorna el nom del tipus d'aquest PreuTipusHabitació.
+     * @return 
+     */
+    public String getNomTipus() {
+        return this.tipus.getNom();
+    }
+    
+    /**
      * Calcula el nombre d'habitacions disponibles del tipus d'habitació de 
      * l'hotel per unes dates i un nombre d'ocupants.
      * @param dIni
@@ -88,14 +124,6 @@ public class PreuTipusHabitacio {
      */
     public Integer numDisp(Date dIni, Date dFi, String nomHotel, Integer numOcup) {
         return this.tipus.numDisp(dIni, dFi, nomHotel, numOcup);
-    }
-    
-    /**
-     * Retorna el nom del tipus d'aquest PreuTipusHabitació.
-     * @return 
-     */
-    public String getNomTipus() {
-        return this.tipus.getNom();
     }
     
     public Integer obteNumeroHabLliure(String nomHotel, Date dIni, Date dFi) {
