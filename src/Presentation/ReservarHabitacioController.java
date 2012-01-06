@@ -59,7 +59,7 @@ public class ReservarHabitacioController {
         c.setTime(dFi);
         long dataFi = c.getTimeInMillis();
         if((dataFi < dataIni) || dataFi-dataIni < 1000){
-            vista.mostraMissatge("Dates incorrectes");
+            vista.mostraMissatge("Dates incorrectes",1);
             return;
         }
         
@@ -78,7 +78,7 @@ public class ReservarHabitacioController {
         catch (Exception e) {
             //capturem les excepcions de domini
             if(e.getMessage().equals("hotelsNoDisp")){
-                vista.mostraMissatge("No hi ha hotels dosponibles en aquesta població");
+                vista.mostraMissatge("No hi ha hotels dosponibles en aquesta població",1);
             }
         }
         

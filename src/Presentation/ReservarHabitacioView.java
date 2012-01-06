@@ -18,7 +18,6 @@ public class ReservarHabitacioView {
     private static Window3 window3;
     private static Window4 window4;
     private static Window5 window5;
-    private static JFrame currentWindow;
     
     private static void createAndShowGUI1() {
         //Mostrar la finestra 1
@@ -30,7 +29,6 @@ public class ReservarHabitacioView {
         this.controlador = controlador;
         
         window1 = new Window1(this);
-        currentWindow = window1;
         
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
@@ -57,7 +55,6 @@ public class ReservarHabitacioView {
     public void mostraHabitacions(ArrayList<DadesHotel> dades) {
         window1.setVisible(false);
         window2 = new Window2();
-        currentWindow = window2;
         
         window2.setVisible(true);
     }
@@ -81,8 +78,8 @@ public class ReservarHabitacioView {
      * Mostra el missatge corresponent a la message area
      * @param missatge 
      */
-    public void mostraMissatge(String missatge) {
-        if(currentWindow == window1){
+    public void mostraMissatge(String missatge, int windowIndex) {
+        if(windowIndex == 1){
             window1.mostraMissatge(missatge);
         }
     }
