@@ -3,6 +3,7 @@ package Presentation;
 import DomainControllers.CasUsReservarHabitacio;
 import TupleTypes.DadesHotel;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -52,16 +53,22 @@ public class ReservarHabitacioController {
      */
     public void PrOkObteHabitacions(String pob, Date dIni, Date dFi, int numOcup) {
         //comprovació de les dates
-        if(dIni.after(dFi) || dIni.equals(dFi)){
+        Calendar c = Calendar.getInstance();
+        c.setTime(dIni);
+        long dataIni = c.getTimeInMillis();
+        c.setTime(dFi);
+        long dataFi = c.getTimeInMillis();
+        if((dataFi < dataIni) || dataFi-dataIni < 1000){
             vista.mostraMissatge("Dates incorrectes");
             return;
         }
         
         //comprovació del nombre d'ocupants
-        if(numOcup <= 0){
+        //com hem implementat un spinner amb els valors 1-9, no es pot donar un valor incorrecte
+        /*if(numOcup <= 0){
             vista.mostraMissatge("Número d'ocupants incorrecte");
             return;
-        }
+        }*/
         
         //intentem aconseguir les dades dels hotels
         try {

@@ -3,6 +3,7 @@ package Presentation;
 import TupleTypes.DadesHotel;
 import TupleTypes.DadesReserva;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JFrame;
 
 /**
@@ -49,7 +50,9 @@ public class ReservarHabitacioView {
         window1.loadPoblacions(poblacions);
     }
     
-    
+    public void confirmacioWindow1(String poblacio, Date dIni, Date dFi, int numOcup) {
+        controlador.PrOkObteHabitacions(poblacio, dIni, dFi, numOcup);
+    }
     
     public void mostraHabitacions(ArrayList<DadesHotel> dades) {
         window1.setVisible(false);
@@ -79,7 +82,9 @@ public class ReservarHabitacioView {
      * @param missatge 
      */
     public void mostraMissatge(String missatge) {
-        
+        if(currentWindow == window1){
+            window1.mostraMissatge(missatge);
+        }
     }
     
     /**

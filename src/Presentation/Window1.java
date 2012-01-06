@@ -10,8 +10,12 @@
  */
 package Presentation;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import javax.swing.SpinnerListModel;
+import javax.swing.SpinnerModel;
 
 /**
  *
@@ -58,10 +62,10 @@ public class Window1 extends javax.swing.JFrame implements com.imagine.component
         dFiLabel = new javax.swing.JLabel();
         dFiCalendar = new com.imagine.component.calendar.CalendarComponent();
         numocLabel = new javax.swing.JLabel();
-        numocTextField = new javax.swing.JTextField();
         messageArea = new javax.swing.JLabel();
         confirmButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
+        numOcSpinner = new javax.swing.JSpinner();
 
         jLabel5.setText("jLabel5");
 
@@ -81,13 +85,6 @@ public class Window1 extends javax.swing.JFrame implements com.imagine.component
 
         numocLabel.setText("Número d'ocupants");
 
-        numocTextField.setText("jTextField1");
-        numocTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                numocTextFieldActionPerformed(evt);
-            }
-        });
-
         messageArea.setText("Message area");
 
         confirmButton.setText("D'acord");
@@ -104,33 +101,31 @@ public class Window1 extends javax.swing.JFrame implements com.imagine.component
             }
         });
 
+        Integer[] values = {1,2,3,4,5,6,7,8,9};
+        numOcSpinner.setModel(new SpinnerListModel(values));
+
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
                 .addContainerGap()
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                    .add(org.jdesktop.layout.GroupLayout.LEADING, layout.createSequentialGroup()
+                        .add(dIniLabel)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 158, Short.MAX_VALUE)
+                        .add(dIniCalendar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 227, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(org.jdesktop.layout.GroupLayout.LEADING, layout.createSequentialGroup()
+                        .add(poblacioLabel)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 180, Short.MAX_VALUE)
+                        .add(poblacioComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 223, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                     .add(layout.createSequentialGroup()
-                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                            .add(org.jdesktop.layout.GroupLayout.LEADING, layout.createSequentialGroup()
-                                .add(dIniLabel)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 158, Short.MAX_VALUE)
-                                .add(dIniCalendar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 227, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                            .add(org.jdesktop.layout.GroupLayout.LEADING, layout.createSequentialGroup()
-                                .add(poblacioLabel)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 180, Short.MAX_VALUE)
-                                .add(poblacioComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 223, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                            .add(layout.createSequentialGroup()
-                                .add(dFiLabel)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 107, Short.MAX_VALUE)
-                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                                    .add(dFiCalendar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 227, Short.MAX_VALUE)
-                                    .add(numocTextField))))
-                        .add(156, 156, 156))
-                    .add(layout.createSequentialGroup()
-                        .add(numocLabel)
-                        .addContainerGap(489, Short.MAX_VALUE))))
+                        .add(dFiLabel)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 107, Short.MAX_VALUE)
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                            .add(numOcSpinner)
+                            .add(dFiCalendar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 227, Short.MAX_VALUE))))
+                .add(156, 156, 156))
             .add(layout.createSequentialGroup()
                 .add(147, 147, 147)
                 .add(messageArea, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 258, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
@@ -141,6 +136,10 @@ public class Window1 extends javax.swing.JFrame implements com.imagine.component
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 160, Short.MAX_VALUE)
                 .add(cancelButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 120, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(147, 147, 147))
+            .add(layout.createSequentialGroup()
+                .addContainerGap()
+                .add(numocLabel)
+                .addContainerGap(489, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -155,17 +154,16 @@ public class Window1 extends javax.swing.JFrame implements com.imagine.component
                     .add(dIniCalendar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 145, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .add(37, 37, 37)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(dFiLabel)
+                    .add(dFiCalendar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 145, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(layout.createSequentialGroup()
-                        .add(dFiLabel)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 146, Short.MAX_VALUE)
-                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                            .add(numocLabel)
-                            .add(numocTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                        .add(34, 34, 34))
+                        .add(20, 20, 20)
+                        .add(numocLabel))
                     .add(layout.createSequentialGroup()
-                        .add(dFiCalendar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 145, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(79, 79, 79)))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(18, 18, 18)
+                        .add(numOcSpinner, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                .add(22, 22, 22)
                 .add(messageArea)
                 .add(18, 18, 18)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
@@ -177,12 +175,14 @@ public class Window1 extends javax.swing.JFrame implements com.imagine.component
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void numocTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numocTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_numocTextFieldActionPerformed
-
+    /**
+     * Tractar quan es prem el botó confirmar
+     * @param evt 
+     */
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
-        // TODO add your handling code here:
+        viewController.confirmacioWindow1(poblacioComboBox.getSelectedItem().toString(), 
+                dIniCalendar.getDate(), dFiCalendar.getDate(), 
+                Integer.valueOf(numOcSpinner.getValue().toString()));
         
     }//GEN-LAST:event_confirmButtonActionPerformed
 
@@ -235,16 +235,22 @@ public class Window1 extends javax.swing.JFrame implements com.imagine.component
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel messageArea;
+    private javax.swing.JSpinner numOcSpinner;
     private javax.swing.JLabel numocLabel;
-    private javax.swing.JTextField numocTextField;
     private javax.swing.JComboBox poblacioComboBox;
     private javax.swing.JLabel poblacioLabel;
     // End of variables declaration//GEN-END:variables
 
     @Override
     public void dateChanged(Date date) {
-        dFiCalendar.setDate(date);
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
+        c.add(Calendar.DATE, 1);
+        Date newDate = c.getTime();
+        dFiCalendar.setDate(newDate);
     }
 
-    
+    public void mostraMissatge(String missatge) {
+        messageArea.setText(missatge);
+    }
 }
