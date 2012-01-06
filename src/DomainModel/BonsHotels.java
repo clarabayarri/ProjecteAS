@@ -11,13 +11,15 @@ package DomainModel;
 public class BonsHotels {
     
     private static BonsHotels singletonObject = null;
+    private int id;
     private float quotaFixa = 0;
     private float quotaVariable = 0;
     
     /**
-     * Creadora privada, s'ha d'accedir des de fora a través de getInstance()
+     * Creadora privada, s'ha d'accedir des de fora a través de getInstance() 
+     * però es manté pública per Hibernate
      */
-    private BonsHotels() {
+    public BonsHotels() {
         
     }
     
@@ -32,6 +34,21 @@ public class BonsHotels {
         return singletonObject;
     }
     
+    /**
+     * Getter de l'id requerit per Hibernate
+     * @return 
+     */
+    public int getId() {
+        return this.id;
+    }
+    
+    /**
+     * Setter de l'id requerit per Hibernate
+     * @param id 
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
     /**
      * Assigna una quotaFixa
      * @param quotaFixa 
