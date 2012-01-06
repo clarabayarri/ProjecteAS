@@ -10,6 +10,9 @@
  */
 package Presentation;
 
+import TupleTypes.DadesHotel;
+import java.util.ArrayList;
+
 /**
  *
  * @author clara
@@ -30,35 +33,35 @@ public class Window2 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        poblacioLabel = new javax.swing.JLabel();
+        poblacioValueLabel = new javax.swing.JLabel();
+        dIniLabel = new javax.swing.JLabel();
+        dIniValueLabel = new javax.swing.JLabel();
+        dFiLabel = new javax.swing.JLabel();
+        numOcLabel = new javax.swing.JLabel();
+        dFiValueLabel = new javax.swing.JLabel();
+        numOcValueLabel = new javax.swing.JLabel();
+        hotelsScrollPanel = new javax.swing.JScrollPane();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Població");
+        poblacioLabel.setText("Població");
 
-        jLabel2.setText("jLabel2");
+        poblacioValueLabel.setText("jLabel2");
 
-        jLabel3.setText("Data d'inici");
+        dIniLabel.setText("Data d'inici");
 
-        jLabel4.setText("jLabel4");
+        dIniValueLabel.setText("jLabel4");
 
-        jLabel5.setText("Data de finalització");
+        dFiLabel.setText("Data de finalització");
 
-        jLabel6.setText("Número d'ocupants");
+        numOcLabel.setText("Número d'ocupants");
 
-        jLabel7.setText("jLabel7");
+        dFiValueLabel.setText("jLabel7");
 
-        jLabel8.setText("jLabel8");
+        numOcValueLabel.setText("jLabel8");
 
         jButton1.setText("D'acord");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -78,22 +81,22 @@ public class Window2 extends javax.swing.JFrame {
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                         .add(layout.createSequentialGroup()
-                            .add(jLabel6)
+                            .add(numOcLabel)
                             .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .add(jLabel8))
+                            .add(numOcValueLabel))
                         .add(layout.createSequentialGroup()
-                            .add(jLabel5)
+                            .add(dFiLabel)
                             .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .add(jLabel7))
+                            .add(dFiValueLabel))
                         .add(layout.createSequentialGroup()
                             .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                .add(jLabel1)
-                                .add(jLabel3))
+                                .add(poblacioLabel)
+                                .add(dIniLabel))
                             .add(81, 81, 81)
                             .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                                .add(jLabel2)
-                                .add(jLabel4))))
-                    .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 477, Short.MAX_VALUE))
+                                .add(poblacioValueLabel)
+                                .add(dIniValueLabel))))
+                    .add(hotelsScrollPanel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 477, Short.MAX_VALUE))
                 .addContainerGap())
             .add(layout.createSequentialGroup()
                 .add(78, 78, 78)
@@ -107,22 +110,22 @@ public class Window2 extends javax.swing.JFrame {
             .add(layout.createSequentialGroup()
                 .addContainerGap()
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel1)
-                    .add(jLabel2))
+                    .add(poblacioLabel)
+                    .add(poblacioValueLabel))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel3)
-                    .add(jLabel4))
+                    .add(dIniLabel)
+                    .add(dIniValueLabel))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel5)
-                    .add(jLabel7))
+                    .add(dFiLabel)
+                    .add(dFiValueLabel))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel6)
-                    .add(jLabel8))
+                    .add(numOcLabel)
+                    .add(numOcValueLabel))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 198, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(hotelsScrollPanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 198, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(18, 18, 18)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jButton1)
@@ -172,17 +175,27 @@ public class Window2 extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void loadData(ArrayList<DadesHotel> data) {
+        for(DadesHotel hotel : data) {
+            HotelView vistaHotel = new HotelView();
+            vistaHotel.loadData(hotel);
+            hotelsScrollPanel.add(vistaHotel);
+        }
+        hotelsScrollPanel.validate();
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel dFiLabel;
+    private javax.swing.JLabel dFiValueLabel;
+    private javax.swing.JLabel dIniLabel;
+    private javax.swing.JLabel dIniValueLabel;
+    private javax.swing.JScrollPane hotelsScrollPanel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel numOcLabel;
+    private javax.swing.JLabel numOcValueLabel;
+    private javax.swing.JLabel poblacioLabel;
+    private javax.swing.JLabel poblacioValueLabel;
     // End of variables declaration//GEN-END:variables
 }

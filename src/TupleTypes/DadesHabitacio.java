@@ -9,9 +9,9 @@ package TupleTypes;
  * @author elena_gratallops
  */
 public class DadesHabitacio {
-    String tipusHab;
-    Integer numeroDisp;
-    float preu;
+    public String tipusHab;
+    public Integer numeroDisp;
+    public float preu;
     
     public DadesHabitacio(String tipus, Integer num, float preu){
         this.numeroDisp = num;
