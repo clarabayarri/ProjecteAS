@@ -21,6 +21,9 @@ public class Hotel {
     Set<Comentari> comentaris = new HashSet();
     CategoriaHotel categoria;
     
+    //atributs necessaris per Hibernate
+    String nomHotel;
+    
     public Hotel(){};
 
     /**
@@ -28,13 +31,15 @@ public class Hotel {
      * @param nomH és el nom de l'hotel
      * @param des és la descripció de l'hotel
      * @param pob és el nom de la població a la que pertany l'hotel
+     * @param nomHotel és necessari per Hibernate
      */
     
-    public Hotel(String nomH, String des){
+    public Hotel(String nomH, String des, String nomHotel){
         this.descripcio = des;
         this.nom = nomH;
         this.comentaris = new HashSet();
         this.preus = new  HashSet();
+        this.nomHotel = nomHotel;
     }
 
     

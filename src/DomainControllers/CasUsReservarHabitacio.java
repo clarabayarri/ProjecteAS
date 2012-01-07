@@ -53,7 +53,7 @@ public class CasUsReservarHabitacio {
         return buscar.obteResultat();   
     }
     
-    public DadesReserva seleccionarHabitacio(String hotel, String tipusHab) {
+    public DadesReserva seleccionarHabitacio(String hotel, String tipusHab) throws Exception{
         
         CtrlDataFactory cdf = CtrlDataFactory.getInstance();
         ICtrlHotel ch = cdf.getCtrlHotel();
