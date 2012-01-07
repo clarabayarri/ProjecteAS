@@ -8,6 +8,8 @@ import TupleTypes.DadesHabitacio;
 import TupleTypes.DadesHotel;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -16,8 +18,8 @@ import java.util.Date;
 public class Hotel {
     String nom;
     String descripcio;
-    ArrayList<PreuTipusHabitacio> preus;
-    ArrayList<Comentari> comentaris;
+    Set<PreuTipusHabitacio> preus = new HashSet();
+    Set<Comentari> comentaris = new HashSet();
     CategoriaHotel categoria;
     
     public Hotel(){};
@@ -32,8 +34,9 @@ public class Hotel {
     public Hotel(String nomH, String des, Poblacio pob){
         this.descripcio = des;
         this.nom = nomH;
-        this.comentaris = new ArrayList<Comentari> ();
-        this.preus = new ArrayList<PreuTipusHabitacio> ();
+        
+        this.comentaris = new HashSet();
+        this.preus = new  HashSet();
         pob.afHotel(this);
     }
 
@@ -61,11 +64,11 @@ public class Hotel {
         boolean trobat = false;
         Integer TEMPS = 24*60*60*1000;
         float p = 0;
-        for(int i = 0;i < preus.size()&& !trobat;++i){
-            if(preus.get(i).isOfType(tipushab)) {
-                    trobat = true;
-                    p = preus.get(i).calculaPreu();
-            }
+        for(PreuTipusHabitacio pr : preus) {
+          if(pr.isOfType(tipushab)){
+              p = pr.calculaPreu();
+              break;
+          }
         }
         Long dies = (dataFi.getTime() - datainici.getTime())/TEMPS;
          
@@ -87,12 +90,12 @@ public class Hotel {
     public Integer obteNumeroHabLliure(String tipushab, Date datainici, Date dataFi){
         Integer num = 0;
         boolean trobat = false;
-        for(int i = 0;i< preus.size()&& !trobat;++i){
-            if(preus.get(i).isOfType(tipushab)) {
-               num = preus.get(i).obteNumeroHabLliure(this.nom, dataFi, dataFi);
-                trobat = true;
-            }     
-        } 
+        for(PreuTipusHabitacio p : preus){
+            if(p.isOfType(tipushab)){
+                num = p.obteNumeroHabLliure(nom, dataFi, dataFi);
+                break;
+            }
+        }
         return num;
     }
     
@@ -110,25 +113,20 @@ public class Hotel {
     
     public boolean estaDisp(Date dIni, Date dFi,Integer numOc, DadesHotel dh) {
         DadesHabitacio dhab = null;
-        ArrayList<DadesHabitacio> habs = null;
+        Set<DadesHabitacio> habs = new HashSet();
         boolean trobat = false;
-        for(int i = 0; i < preus.size() && !trobat; ++i){
+        for(PreuTipusHabitacio p : preus){
             Integer var = 0;
-            if((var = preus.get(i).numDisp(dIni,dFi,this.nom,numOc)) > 0){
-                dhab.preu =preus.get(i).calculaPreu();
-                dhab.tipusHab = preus.get(i).getNomTipus();
+            if((var = p.numDisp(dIni, dFi, nom, numOc)) > 0){
+                dhab.preu = p.calculaPreu();
+                dhab.tipusHab = p.getNomTipus();
                 dhab.numeroDisp = var; 
                 habs.add(dhab);
                 trobat = true;
             }
-            
         }
+        
         if(trobat){
-            /*dh.setAvaluacio(this.mitjaAval()); 
-            dh.setCategoria(this.categoria.getNom());
-            dh.setDesc(this.descripcio);
-            dh.setNom(this.nom);
-            dh.setHabs(habs);*/
             dh.avaluacio = this.mitjaAval();
             dh.categoria = this.categoria.getNom();
             dh.desc = this.descripcio;
@@ -157,10 +155,12 @@ public class Hotel {
     
     private float mitjaAval(){
         Integer suma = 0;
-        int i;
-        for(i= 0;i < comentaris.size();++i){
-            suma = suma + comentaris.get(i).getAvaluacio();
+        int i = 0;
+        for(Comentari c : comentaris){
+            suma = suma + c.getAvaluacio();
+            ++i;
         }
+        
         return suma/i;
     }
     
