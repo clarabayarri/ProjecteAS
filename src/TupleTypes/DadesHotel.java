@@ -5,6 +5,8 @@
 package TupleTypes;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -15,7 +17,8 @@ public class DadesHotel {
     public String desc;
     public String categoria;
     public Float avaluacio;
-    public ArrayList<DadesHabitacio> habs;
+    public Set<DadesHabitacio> habs = new HashSet();
+    
 }  
   /*  
     public DadesHotel() {
