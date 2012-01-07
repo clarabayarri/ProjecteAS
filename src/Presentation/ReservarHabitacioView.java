@@ -4,6 +4,7 @@ import TupleTypes.DadesHotel;
 import TupleTypes.DadesReserva;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Set;
 import javax.swing.JTextField;
 
 /**
@@ -57,12 +58,6 @@ public class ReservarHabitacioView {
         window1 = new Window1(this);
         window1.loadPoblacions(poblacions);
         window1.setVisible(true);
-        /*javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowGUI1();
-            }
-        });*/
-        
     }
     
     /**
@@ -79,9 +74,9 @@ public class ReservarHabitacioView {
      * mostra les dades dels hotels i les seves habitacions disponibles 
      * @param basicData
      * @param dades 
-     * @author elena
+     * @author clara
      */
-    public void mostraHabitacions(DadesReserva basicData, ArrayList<DadesHotel> dades) {
+    public void mostraHabitacions(DadesReserva basicData, Set<DadesHotel> dades) {
         window1.setVisible(false);
         window2 = new Window2();
         window2.loadData(basicData, dades);

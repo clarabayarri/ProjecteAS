@@ -7,6 +7,7 @@ import TupleTypes.DadesReserva;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -67,6 +68,7 @@ public class ReservarHabitacioController {
     
     /**
      * Ordena inserir a la BD dades amb les que poder provar l'aplicació
+     * @author clara
      */
     public void carregaDadesDeProva() {
         TxInserirDades transaccio = new TxInserirDades();
@@ -103,7 +105,7 @@ public class ReservarHabitacioController {
         
         //intentem aconseguir les dades dels hotels
         try {
-            ArrayList<DadesHotel> resultat = domini.buscarHabitacio(pob, dIni, dFi, numOcup);
+            Set<DadesHotel> resultat = domini.buscarHabitacio(pob, dIni, dFi, numOcup);
             DadesReserva basicData = new DadesReserva();
             basicData.pob = pob;
             basicData.dIni = dIni;
@@ -175,6 +177,7 @@ public class ReservarHabitacioController {
     
     /**
      * Confirmació de final
+     * @author clara
      */
     public void PrOkMissatgeFi() {
         vista.tanca();
@@ -182,6 +185,7 @@ public class ReservarHabitacioController {
     
     /**
      * Petició de cancel·lació
+     * @author clara
      */
     public void PrCancel() {
         vista.tanca();

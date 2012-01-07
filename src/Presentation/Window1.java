@@ -10,12 +10,10 @@
  */
 package Presentation;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import javax.swing.SpinnerListModel;
-import javax.swing.SpinnerModel;
 
 /**
  *
@@ -34,11 +32,13 @@ public class Window1 extends javax.swing.JFrame implements com.imagine.component
      * Carrega la llista de poblacions del sistema
      * @param poblacions 
      */
-    public void loadPoblacions(ArrayList<String> poblacions) {
+    public void loadPoblacions(List<String> poblacions) {
         //Actualitza la llista d'elements a mostra per les poblacions del sistema
         String[] list = new String[poblacions.size()];
-        for(int i = 0; i < poblacions.size(); ++i){
-            list[i] = poblacions.get(i);
+        int i = 0;
+        for(String poblacio : poblacions){
+            list[i] = poblacio;
+            i++;
         }
         poblacioComboBox.setModel(new javax.swing.DefaultComboBoxModel(list));
         

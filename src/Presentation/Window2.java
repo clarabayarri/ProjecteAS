@@ -13,6 +13,7 @@ package Presentation;
 import TupleTypes.DadesHotel;
 import TupleTypes.DadesReserva;
 import java.util.ArrayList;
+import java.util.Set;
 
 /**
  *
@@ -177,7 +178,7 @@ public class Window2 extends javax.swing.JFrame {
         });
     }
     
-    public void loadData(DadesReserva basicData, ArrayList<DadesHotel> data) {
+    public void loadData(DadesReserva basicData, Set<DadesHotel> data) {
         poblacioValueLabel.setText(basicData.pob);
         dIniValueLabel.setText(basicData.dIni.toString());
         dFiValueLabel.setText(basicData.dIni.toString());

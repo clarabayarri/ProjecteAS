@@ -15,6 +15,7 @@ import TupleTypes.DadesHotel;
 import TupleTypes.DadesReserva;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Set;
 
 /**
  *
@@ -46,7 +47,7 @@ public class CasUsReservarHabitacio {
     }
     
         
-    public ArrayList<DadesHotel> buscarHabitacio(String pob, Date dIni, Date dFi, Integer numOcup) {
+    public Set<DadesHotel> buscarHabitacio(String pob, Date dIni, Date dFi, Integer numOcup) throws Exception{
         
         TxBuscarHabitacio buscar = new TxBuscarHabitacio(pob, dIni, dFi, numOcup);
         buscar.executar();
