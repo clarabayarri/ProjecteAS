@@ -42,11 +42,10 @@ public class ClientTest {
     }
 
     @AfterClass
-    public static void tearDownClass() throws Exception {
-        Client c = (Client) session.get(Client.class, "5");
-        session.delete(c);
-        
+    public static void tearDownClass() throws Exception {        
         if (session != null) {
+            Client c = (Client) session.get(Client.class, "5");
+            session.delete(c);
             session.getTransaction().commit();
         }
         
