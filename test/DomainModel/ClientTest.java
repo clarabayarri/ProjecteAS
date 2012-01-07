@@ -35,10 +35,7 @@ public class ClientTest {
         }
 
         Client c = new Client("5", "nom", "cognoms", "email");
-        session.persist(c);
-        
-        
-
+        session.persist(c); 
     }
 
     @AfterClass
@@ -47,10 +44,7 @@ public class ClientTest {
             Client c = (Client) session.get(Client.class, "5");
             session.delete(c);
             session.getTransaction().commit();
-        }
-        
-        
-        //session.flush();
+        }                
     }
     
     @Before
