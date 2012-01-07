@@ -1,7 +1,7 @@
 package DataInterfaces;
 
 import DomainModel.Poblacio;
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Aquesta és la interfície que fa servir la capa de domini per interaccionar 
@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 public interface ICtrlPoblacio {
     
-    public Poblacio get(String nom);
+    public Poblacio get(String nom) throws Exception;
     
-    public ArrayList<Poblacio> tots();
+    public List<Poblacio> tots() throws Exception;
 }

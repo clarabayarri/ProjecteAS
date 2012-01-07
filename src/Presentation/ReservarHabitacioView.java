@@ -4,7 +4,6 @@ import TupleTypes.DadesHotel;
 import TupleTypes.DadesReserva;
 import java.util.ArrayList;
 import java.util.Date;
-import javax.swing.JFrame;
 import javax.swing.JTextField;
 
 /**
@@ -153,4 +152,6 @@ public class ReservarHabitacioView {
         //throw new UnsupportedOperationException("Not yet implemented");
         controlador.PrOkIntroduirDni(Tdni.toString());
     }
+    
+    
 }

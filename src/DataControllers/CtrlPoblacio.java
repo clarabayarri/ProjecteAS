@@ -2,29 +2,49 @@ package DataControllers;
 
 import DataInterfaces.ICtrlPoblacio;
 import DomainModel.Poblacio;
+import Hibernate.HibernateUtil;
 import java.util.ArrayList;
+import java.util.List;
+import org.hibernate.Session;
+
 
 /**
- * Contrlador de cada de gestió de dades encarregat de recuperar 
+ * Controlador de cada de gestió de dades encarregat de recuperar 
  * instancies de poblacions.
- * @author clara
+ * @author elena
  */
 public class CtrlPoblacio implements ICtrlPoblacio{
 
     @Override
-    public Poblacio get(String nom) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public Poblacio get(String nom) throws Exception{
+        //throw new UnsupportedOperationException("Not supported yet.");
+        Session session = null; 
+        Poblacio p = null;
+        try {
+            session = HibernateUtil.getSessionFactory().getCurrentSession();
+            session.beginTransaction();
+            p = (Poblacio) session.get(Poblacio.class, nom);
+        } catch (RuntimeException e) {
+            session.getTransaction().rollback();
+            throw new Exception("poblacioNoExisteix");
+        }
+        return p;
     }
 
-    @Override
-    public ArrayList<Poblacio> tots() {
-        //TODO: this is a stub.
-        
-        ArrayList<Poblacio> resultat = new ArrayList<Poblacio>();
-        //Poblacio p = new Poblacio("Barcelona");
-        //resultat.add(p);
-        
+    public List<Poblacio> tots() throws Exception {
+        //throw new UnsupportedOperationException("Not supported yet.");
+        List<Poblacio> resultat = new ArrayList<Poblacio>();
+        Session session = null; 
+        try {
+            session = HibernateUtil.getSessionFactory().getCurrentSession();
+            session.beginTransaction();
+            resultat = session.createQuery("from Poblacio").list();
+            
+        } catch (RuntimeException e) {
+            session.getTransaction().rollback();
+            throw new Exception("noHiHaPoblacions");
+        }
         return resultat;
     }
-    
+        
 }
