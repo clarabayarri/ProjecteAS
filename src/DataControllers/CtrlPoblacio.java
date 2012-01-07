@@ -35,15 +35,14 @@ public class CtrlPoblacio implements ICtrlPoblacio{
         //throw new UnsupportedOperationException("Not supported yet.");
         List<Poblacio> resultat = new ArrayList<Poblacio>();
         Session session = null; 
-        try {
-            session = HibernateUtil.getSessionFactory().getCurrentSession();
-            session.beginTransaction();
-            resultat = session.createQuery("from Poblacio").list();
+        session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        resultat = session.createQuery("from Poblacio").list();
             
-        } catch (RuntimeException e) {
+        /*} catch (RuntimeException e) {
             session.getTransaction().rollback();
             throw new Exception("noHiHaPoblacions");
-        }
+        }*/
         return resultat;
     }
         
