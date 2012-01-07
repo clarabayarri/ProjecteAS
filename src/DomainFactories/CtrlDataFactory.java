@@ -4,10 +4,12 @@
  */
 package DomainFactories;
 
+import DataControllers.CtrlBonsHotels;
 import DataControllers.CtrlClient;
 import DataControllers.CtrlHabitacio;
 import DataControllers.CtrlHotel;
 import DataControllers.CtrlPoblacio;
+import DataInterfaces.ICtrlBonsHotels;
 import DataInterfaces.ICtrlClient;
 import DataInterfaces.ICtrlHabitacio;
 import DataInterfaces.ICtrlHotel;
@@ -23,6 +25,7 @@ public class CtrlDataFactory {
     private ICtrlHotel ctrlHotel;
     private ICtrlClient ctrlClient;
     private ICtrlHabitacio ctrlHabitacio;
+    private ICtrlBonsHotels ctrlBonsHotels;
     
     
     private CtrlDataFactory() {};
@@ -50,6 +53,11 @@ public class CtrlDataFactory {
     public ICtrlHabitacio getCtrlHabitacio() {
         if (ctrlHabitacio == null) ctrlHabitacio = new CtrlHabitacio();
         return ctrlHabitacio;
+    }
+    
+    public ICtrlBonsHotels getCtrlBonsHotels() {
+        if(ctrlBonsHotels == null) ctrlBonsHotels = new CtrlBonsHotels();
+        return ctrlBonsHotels;
     }
         
 }

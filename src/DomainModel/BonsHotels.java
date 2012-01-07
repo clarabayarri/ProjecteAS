@@ -4,6 +4,7 @@
  */
 package DomainModel;
 
+import DomainFactories.CtrlDataFactory;
 import java.util.Random;
 
 /**
@@ -31,7 +32,8 @@ public class BonsHotels {
      */
     public static BonsHotels getInstance() {
         if(singletonObject == null){
-            singletonObject = new BonsHotels();
+            CtrlDataFactory cdf = CtrlDataFactory.getInstance();
+            singletonObject = cdf.getCtrlBonsHotels().get();
         }
         return singletonObject;
     }
