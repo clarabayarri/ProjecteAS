@@ -6,4 +6,5 @@
             <column name="NOM" length="100" />
             <generator class="assigned" />
         </id>
+  </class>
 </hibernate-mapping>

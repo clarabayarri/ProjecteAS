@@ -5,5 +5,6 @@
       <id name="nom" type="string">
             <column name="NOM" length="100" />
             <generator class="assigned" />
-        </id>
+      </id>
+  </class>
 </hibernate-mapping>
