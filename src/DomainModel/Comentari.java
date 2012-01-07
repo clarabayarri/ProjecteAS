@@ -15,7 +15,7 @@ public class Comentari {
     String descripcio;
     Date data;
     
-    //////////reqerit
+    //////////reqerit per l'hibernate
     String nomHotel;
     
     public Comentari(){};
@@ -35,14 +35,78 @@ public class Comentari {
         this.nomHotel = h;
     }
     
+    /**
+     * 
+     * @return 
+     */
+    public Integer getAvaluacio() {
+        return avaluacio;
+    }
     
     /**
      * 
-     * @return el valor de l'avalució que té l'hotel en aquest comentari
+     * @param avaluacio 
+     */
+
+    public void setAvaluacio(Integer avaluacio) {
+        this.avaluacio = avaluacio;
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+
+    public Date getData() {
+        return data;
+    }
+    
+    /**
+     * 
+     * @param data 
+     */
+
+    public void setData(Date data) {
+        this.data = data;
+    }
+    
+    /**
+     * 
+     * @return 
      */
     
-    public Integer getAvaluacio(){
-        return this.avaluacio;
+    public String getDescripcio() {
+        return descripcio;
     }
-   
+    
+    /**
+     * 
+     * @param descripcio 
+     */
+
+    public void setDescripcio(String descripcio) {
+        this.descripcio = descripcio;
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+
+    public String getNomHotel() {
+        return nomHotel;
+    }
+    
+    /**
+     * 
+     * @param nomHotel 
+     */
+
+    public void setNomHotel(String nomHotel) {
+        this.nomHotel = nomHotel;
+    }
+    
+    
+    
+    
 }
