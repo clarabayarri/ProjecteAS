@@ -18,5 +18,5 @@ public interface ICtrlHabitacio {
      * @param nomHotel
      * @return 
      */
-    public Habitacio get(Integer numero, String nomHotel);
+    public Habitacio get(Integer numero, String nomHotel) throws Exception;
 }

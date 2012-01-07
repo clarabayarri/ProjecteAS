@@ -29,5 +29,13 @@ public class CategoriaHotel {
         return this.nom;
     }
     
+    /**
+     * 
+     * @param n 
+     */
+    public void setNom(String n){
+        this.nom = n;
+    }
+    
     
 }

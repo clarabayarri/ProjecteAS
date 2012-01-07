@@ -5,10 +5,11 @@ import TupleTypes.DadesReserva;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JFrame;
+import javax.swing.JTextField;
 
 /**
  *
- * @author clara
+ * @author clara i elena 
  */
 public class ReservarHabitacioView {
     
@@ -122,5 +123,16 @@ public class ReservarHabitacioView {
      */
     public void tanca() {
         System.exit(0);
+    }
+
+    /**
+     * crida a la funcio del controlador per a canviar de pantalla de la 3 a la 4 i li passa el dni que han introduït
+     * com a nova informació 
+     * @param Tdni
+     * @author elena
+     */
+    void confirmacioWindow3(JTextField Tdni) {
+        //throw new UnsupportedOperationException("Not yet implemented");
+        controlador.PrOkIntroduirDni(Tdni.toString());
     }
 }
