@@ -101,6 +101,7 @@ public class TxInserirDades {
         String[] descripcions = {"Habitació amb un llit", "Habitació amb dos llits", "Habitació amb llit doble"};
         for(int i = 0; i < noms.length; ++i){
             TipusHabitacio tipus = new TipusHabitacio(noms[i],i+1,descripcions[i]);
+            session.persist(tipus);
         }
     }
     

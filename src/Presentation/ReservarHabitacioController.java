@@ -59,9 +59,10 @@ public class ReservarHabitacioController {
             vista.mostraPoblacions(poblacions);
         }
         catch(Exception e){
-            if(e.getMessage().equals("noHiHaPoblacions")){
+            if(e.getMessage() != null && e.getMessage().equals("noHiHaPoblacions")){
                 vista.mostraNoHiHaPoblacions();
             }
+            else e.printStackTrace();
         }
         
     }
@@ -115,9 +116,10 @@ public class ReservarHabitacioController {
         }
         catch (Exception e) {
             //capturem les excepcions de domini
-            if(e.getMessage().equals("hotelsNoDisp")){
+            if(e.getMessage() != null && e.equals("hotelsNoDisp")){
                 vista.mostraMissatge("No hi ha hotels dosponibles en aquesta població",1);
             }
+            else e.printStackTrace();
         }
         
         
