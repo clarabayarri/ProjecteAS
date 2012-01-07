@@ -13,5 +13,5 @@ public interface ICtrlPoblacio {
     
     public Poblacio get(String nom) throws Exception;
     
-    public ArrayList<Poblacio> tots() throws Exception;
+    public ArrayList<Poblacio> tots();
 }

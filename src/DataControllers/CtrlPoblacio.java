@@ -5,7 +5,6 @@ import DomainModel.Poblacio;
 import Hibernate.HibernateUtil;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 import org.hibernate.Session;
 
 
@@ -32,6 +31,7 @@ public class CtrlPoblacio implements ICtrlPoblacio{
         return p;
     }
 
+    
     public ArrayList<Poblacio> tots() {
         ArrayList<Poblacio> resultat = null;
         Session session = null; 
@@ -40,7 +40,6 @@ public class CtrlPoblacio implements ICtrlPoblacio{
             session.beginTransaction();
             List<Poblacio> retorn = session.createQuery("from Poblacio").list();
             resultat = new ArrayList<Poblacio>(retorn);
-            
         } catch (RuntimeException e) {
             session.getTransaction().rollback();
         }
