@@ -13,8 +13,7 @@ import java.util.Date;
 public class Comentari {
     Integer avaluacio;
     String descripcio;
-    Date data;
-    
+    Date data; 
     //////////reqerit per l'hibernate
     String nomHotel;
     
