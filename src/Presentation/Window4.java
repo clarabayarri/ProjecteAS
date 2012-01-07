@@ -45,19 +45,19 @@ public class Window4 extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
+        dataIniciValueLabel = new javax.swing.JLabel();
+        poblacioValueLabel = new javax.swing.JLabel();
+        dataFiValueLabel = new javax.swing.JLabel();
+        numOcupValueLabel = new javax.swing.JLabel();
+        hotelValueLabel = new javax.swing.JLabel();
+        habitacioValueLabel = new javax.swing.JLabel();
+        preuTotalValueLabel = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        dniValueLabel = new javax.swing.JLabel();
+        nomValueLabel = new javax.swing.JLabel();
+        cognomsValueLabel = new javax.swing.JLabel();
+        emailValueLabel = new javax.swing.JLabel();
+        dataCaducitatFormattedTextField = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -91,31 +91,36 @@ public class Window4 extends javax.swing.JFrame {
 
         jLabel13.setText("E-Mail");
 
-        jLabel14.setText("jLabel2");
+        dataIniciValueLabel.setText("jLabel2");
 
-        jLabel15.setText("jLabel2");
+        poblacioValueLabel.setText("jLabel2");
 
-        jLabel16.setText("jLabel2");
+        dataFiValueLabel.setText("jLabel2");
 
-        jLabel17.setText("jLabel2");
+        numOcupValueLabel.setText("jLabel2");
 
-        jLabel18.setText("jLabel2");
+        hotelValueLabel.setText("jLabel2");
 
-        jLabel19.setText("jLabel2");
+        habitacioValueLabel.setText("jLabel2");
 
-        jLabel20.setText("jLabel2");
+        preuTotalValueLabel.setText("jLabel2");
 
         jTextField7.setText("jTextField7");
 
-        jLabel21.setText("jLabel2");
+        dniValueLabel.setText("jLabel2");
 
-        jLabel22.setText("jLabel2");
+        nomValueLabel.setText("jLabel2");
 
-        jLabel23.setText("jLabel2");
+        cognomsValueLabel.setText("jLabel2");
 
-        jLabel24.setText("jLabel2");
+        emailValueLabel.setText("jLabel2");
 
-        jTextField8.setText("jTextField7");
+        dataCaducitatFormattedTextField.setText("jFormattedTextField1");
+        dataCaducitatFormattedTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataCaducitatFormattedTextFieldActionPerformed(evt);
+            }
+        });
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -135,20 +140,18 @@ public class Window4 extends javax.swing.JFrame {
                     .add(jLabel9))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jTextField8, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 266, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(layout.createSequentialGroup()
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(jLabel20)
-                            .add(jLabel19)
-                            .add(jTextField7, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 266, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(preuTotalValueLabel)
+                            .add(habitacioValueLabel)
                             .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
                                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
                                     .add(org.jdesktop.layout.GroupLayout.LEADING, layout.createSequentialGroup()
                                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                            .add(jLabel14)
-                                            .add(jLabel15)
-                                            .add(jLabel16)
-                                            .add(jLabel17))
+                                            .add(dataIniciValueLabel)
+                                            .add(poblacioValueLabel)
+                                            .add(dataFiValueLabel)
+                                            .add(numOcupValueLabel))
                                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                                             .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
                                                 .add(135, 135, 135)
@@ -163,17 +166,20 @@ public class Window4 extends javax.swing.JFrame {
                                                     .add(jLabel11))
                                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 57, Short.MAX_VALUE)))
                                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                                            .add(jLabel21)
-                                            .add(jLabel22)
-                                            .add(jLabel23)
-                                            .add(jLabel24)))
+                                            .add(dniValueLabel)
+                                            .add(nomValueLabel)
+                                            .add(cognomsValueLabel)
+                                            .add(emailValueLabel)))
                                     .add(layout.createSequentialGroup()
                                         .add(jButton1)
                                         .add(64, 64, 64)
                                         .add(jButton2)))
-                                .add(112, 112, 112)))
+                                .add(112, 112, 112))
+                            .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
+                                .add(org.jdesktop.layout.GroupLayout.LEADING, dataCaducitatFormattedTextField)
+                                .add(org.jdesktop.layout.GroupLayout.LEADING, jTextField7, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)))
                         .add(85, 85, 85))
-                    .add(jLabel18))
+                    .add(hotelValueLabel))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -185,45 +191,45 @@ public class Window4 extends javax.swing.JFrame {
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
                             .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                                 .add(jLabel1)
-                                .add(jLabel15))
+                                .add(poblacioValueLabel))
                             .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                                .add(jLabel21)
+                                .add(dniValueLabel)
                                 .add(jLabel10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 16, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
                             .add(jLabel2)
                             .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                                .add(jLabel22)
+                                .add(nomValueLabel)
                                 .add(jLabel11))))
-                    .add(jLabel14))
+                    .add(dataIniciValueLabel))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
                     .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                         .add(jLabel3)
-                        .add(jLabel16))
+                        .add(dataFiValueLabel))
                     .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                        .add(jLabel23)
+                        .add(cognomsValueLabel)
                         .add(jLabel12)))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
                     .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                         .add(jLabel4)
-                        .add(jLabel17))
+                        .add(numOcupValueLabel))
                     .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                        .add(jLabel24, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 16, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(emailValueLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 16, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(jLabel13, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 16, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                 .add(22, 22, 22)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel5)
-                    .add(jLabel18, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 16, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(hotelValueLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 16, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel6)
-                    .add(jLabel19))
+                    .add(habitacioValueLabel))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel7)
-                    .add(jLabel20))
+                    .add(preuTotalValueLabel))
                 .add(47, 47, 47)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel8)
@@ -231,7 +237,7 @@ public class Window4 extends javax.swing.JFrame {
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel9)
-                    .add(jTextField8, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(dataCaducitatFormattedTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 43, Short.MAX_VALUE)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jButton1)
@@ -241,6 +247,10 @@ public class Window4 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void dataCaducitatFormattedTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataCaducitatFormattedTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dataCaducitatFormattedTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -278,6 +288,14 @@ public class Window4 extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel cognomsValueLabel;
+    private javax.swing.JFormattedTextField dataCaducitatFormattedTextField;
+    private javax.swing.JLabel dataFiValueLabel;
+    private javax.swing.JLabel dataIniciValueLabel;
+    private javax.swing.JLabel dniValueLabel;
+    private javax.swing.JLabel emailValueLabel;
+    private javax.swing.JLabel habitacioValueLabel;
+    private javax.swing.JLabel hotelValueLabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -285,18 +303,7 @@ public class Window4 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -305,6 +312,9 @@ public class Window4 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
+    private javax.swing.JLabel nomValueLabel;
+    private javax.swing.JLabel numOcupValueLabel;
+    private javax.swing.JLabel poblacioValueLabel;
+    private javax.swing.JLabel preuTotalValueLabel;
     // End of variables declaration//GEN-END:variables
 }

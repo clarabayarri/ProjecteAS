@@ -15,5 +15,5 @@ public interface ICtrlClient {
      * @param dni
      * @return 
      */
-    public Client get(String dni);
+    public Client get(String dni) throws Exception;
 }
