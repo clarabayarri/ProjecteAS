@@ -40,6 +40,15 @@ public class Poblacio {
     }
     
     /**
+     * 
+     * @param n 
+     */
+    
+    public void setNom(String n){
+        this.nom = n;
+    }
+    
+    /**
      * retorna una tupla amb la informació de l'hotel disponible entre les dates dIni i dFi, i les seves habitacions disponibles
      * que tinguin capacitat per a NumOcup
      * @param dIni 
@@ -62,15 +71,27 @@ public class Poblacio {
     }
     
     /**
-     * afegrix l'hotel al ArrayList<Hotel> hotels;
-     * @param h 
+     * 
+     * @return 
      */
+
+    public Set<Hotel> getHotels() {
+        return hotels;
+    }
     
-    public void afHotel(Hotel h){
-        hotels.add(h);
+    /**
+     * 
+     * @param hotels 
+     */
+
+    public void setHotels(Set<Hotel> hotels) {
+        this.hotels = hotels;
     }
     
     
     
+    
+    
+    
+    
 }
-
