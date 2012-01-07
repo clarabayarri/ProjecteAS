@@ -33,7 +33,7 @@ public class CasUsReservarHabitacio {
     
     public CasUsReservarHabitacio() {};
     
-    public ArrayList<String> obtePoblacions() {
+    public ArrayList<String> obtePoblacions() throws Exception {
         
         CtrlDataFactory cdf = CtrlDataFactory.getInstance();
         ICtrlPoblacio cp = cdf.getCtrlPoblacio();
@@ -42,6 +42,7 @@ public class CasUsReservarHabitacio {
         for (int i = 0; i < poblacions.size(); ++i) {
             result.add(poblacions.get(i).getNom());
         }
+        if (result.isEmpty()) throw new Exception("noHiHaPoblacions");
         return result;
     }
     
