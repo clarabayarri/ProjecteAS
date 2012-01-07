@@ -45,7 +45,7 @@ public class Window3 extends javax.swing.JFrame {
         
     }
     
-    public String setDni(){
+    public String getDni(){
         return Tdni.getText();
     }
 
