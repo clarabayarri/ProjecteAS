@@ -22,7 +22,7 @@ public class Hotel {
     CategoriaHotel categoria;
     
     //atributs necessaris per Hibernate
-    String nomHotel;
+    String nomPoblacio;
     
     public Hotel(){};
 
@@ -31,15 +31,15 @@ public class Hotel {
      * @param nomH és el nom de l'hotel
      * @param des és la descripció de l'hotel
      * @param pob és el nom de la població a la que pertany l'hotel
-     * @param nomHotel és necessari per Hibernate
      */
     
-    public Hotel(String nomH, String des, String nomHotel){
+    public Hotel(String nom, String des, String nomPoblacio, CategoriaHotel categoria){
         this.descripcio = des;
-        this.nom = nomH;
+        this.nom = nom;
         this.comentaris = new HashSet();
         this.preus = new  HashSet();
-        this.nomHotel = nomHotel;
+        this.nomPoblacio = nomPoblacio;
+        this.categoria = categoria;
     }
 
     
@@ -110,6 +110,24 @@ public class Hotel {
     
     public void setPreus(Set<PreuTipusHabitacio> preus){
         this.preus = preus;
+    }
+    
+    /**
+     * Setter del string nomPoblacio
+     * @param nomPoblacio 
+     * @author clara
+     */
+    public void setNomPoblacio(String nomPoblacio) {
+        this.nomPoblacio = nomPoblacio;
+    }
+    
+    /**
+     * Getter del string nomPoblacio
+     * @return 
+     * @author clara
+     */
+    public String getNomPoblacio() {
+        return this.nomPoblacio;
     }
     
     

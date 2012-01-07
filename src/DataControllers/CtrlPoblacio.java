@@ -31,19 +31,17 @@ public class CtrlPoblacio implements ICtrlPoblacio{
         return p;
     }
 
-    @Override
-    public List<Poblacio> tots() throws Exception {
-        //throw new UnsupportedOperationException("Not supported yet.");
-        List<Poblacio> resultat = new ArrayList<Poblacio>();
+    
+    public ArrayList<Poblacio> tots() {
+        ArrayList<Poblacio> resultat = new ArrayList<Poblacio>();
         Session session = null; 
         try {
             session = HibernateUtil.getSessionFactory().getCurrentSession();
             session.beginTransaction();
-            resultat = session.createQuery("from Poblacio").list();
-            
+            List<Poblacio> retorn = session.createQuery("from Poblacio").list();
+            resultat = new ArrayList<Poblacio>(retorn);
         } catch (RuntimeException e) {
             session.getTransaction().rollback();
-            throw new Exception("noHiHaPoblacions");
         }
         return resultat;
     }

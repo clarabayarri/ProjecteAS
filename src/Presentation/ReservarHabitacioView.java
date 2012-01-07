@@ -4,6 +4,7 @@ import TupleTypes.DadesHotel;
 import TupleTypes.DadesReserva;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Set;
 import javax.swing.JTextField;
 
 /**
@@ -13,22 +14,28 @@ import javax.swing.JTextField;
 public class ReservarHabitacioView {
     
     private ReservarHabitacioController controlador;
+    private static LoadingWindow loadingWindow;
+    private static CarregarDadesInicials windowNoPoblacions;
     private static Window1 window1;
     private static Window2 window2;
     private static Window3 window3;
     private static Window4 window4;
     private static Window5 window5;
     
+    /**
+     * Funció necessària per permetre que aparegui la primera pantalla abans no 
+     * es tanqui l'aplicació
+     */
     private static void createAndShowGUI1() {
-        //Mostrar la finestra 1
-        window1.setVisible(true);
+        //Mostrar la finestra de loading
+        loadingWindow.setVisible(true);
         
     }
     
     public ReservarHabitacioView(ReservarHabitacioController controlador){
         this.controlador = controlador;
         
-        window1 = new Window1(this);
+        loadingWindow = new LoadingWindow();
         
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
@@ -39,36 +46,61 @@ public class ReservarHabitacioView {
     }
     
     /**
+     * Mostra la pantalla que indica que no hi ha dades al sistema i permet 
+     * carregar-ne
+     * @author clara
+     */
+    public void mostraNoHiHaPoblacions() {
+        loadingWindow.setVisible(false);
+        windowNoPoblacions = new CarregarDadesInicials(this);
+        windowNoPoblacions.setVisible(true);
+    }
+    
+    /**
+     * Carrega les dades a la base de dades per poder utilitzar l'aplicació
+     * @author clara
+     */
+    public void carregaDadesInicials() {
+        controlador.carregaDadesDeProva();
+    }
+    
+    /**
      * Mostra la primera pantalla
      * @param poblacions 
      * @author clara
      */
     public void mostraPoblacions(ArrayList<String> poblacions) {
+        loadingWindow.setVisible(false);
+        window1 = new Window1(this);
         window1.loadPoblacions(poblacions);
+        window1.setVisible(true);
     }
     
     /**
-     * 
+     * Funció per rebre l'event de quan es selecciona acceptar a la pantalla 1
      * @param poblacio
      * @param dIni
      * @param dFi
      * @param numOcup 
+     * @author clara
      */
     public void confirmacioWindow1(String poblacio, Date dIni, Date dFi, int numOcup) {
         controlador.PrOkObteHabitacions(poblacio, dIni, dFi, numOcup);
     }
+    
     /**
      * mostra les dades dels hotels i les seves habitacions disponibles 
      * @param basicData
      * @param dades 
-     * @author elena
+     * @author clara
      */
-    public void mostraHabitacions(DadesReserva basicData, ArrayList<DadesHotel> dades) {
+    public void mostraHabitacions(DadesReserva basicData, Set<DadesHotel> dades) {
         window1.setVisible(false);
         window2 = new Window2();
         window2.loadData(basicData, dades);
         window2.setVisible(true);
     }
+    
     /**
      * mostra el preu total de la reserva i les dades acumulades sobre la rserva 
      * @param dades 

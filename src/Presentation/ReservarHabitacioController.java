@@ -1,11 +1,15 @@
 package Presentation;
 
 import DomainControllers.CasUsReservarHabitacio;
+import DomainControllers.TxInserirDades;
 import TupleTypes.DadesHotel;
 import TupleTypes.DadesReserva;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -32,16 +36,45 @@ public class ReservarHabitacioController {
         });
     }
     
-    private void preparaPoblacions() {
-        ArrayList<String> poblacions = domini.obtePoblacions();
-        vista.mostraPoblacions(poblacions);
-    }
-    
+    /**
+     * Funció per obtenir la instància singleton
+     * @return 
+     * @author clara
+     */
     public static ReservarHabitacioController getInstance() {
         if(singletonObject == null){
             singletonObject = new ReservarHabitacioController();
         }
         return singletonObject;
+    }
+    
+    /**
+     * Obté les poblacions a mostrar en la primera pantalla, i si no en troba 
+     * carrega la pantalla d'error
+     * @author clara
+     */
+    private void preparaPoblacions() {
+        try {
+            ArrayList<String> poblacions = domini.obtePoblacions();
+            vista.mostraPoblacions(poblacions);
+        }
+        catch(Exception e){
+            if(e.getMessage() != null && e.getMessage().equals("noHiHaPoblacions")){
+                vista.mostraNoHiHaPoblacions();
+            }
+            else e.printStackTrace();
+        }
+        
+    }
+    
+    /**
+     * Ordena inserir a la BD dades amb les que poder provar l'aplicació
+     * @author clara
+     */
+    public void carregaDadesDeProva() {
+        TxInserirDades transaccio = new TxInserirDades();
+        transaccio.executar();
+        preparaPoblacions();
     }
     
     /**
@@ -73,7 +106,7 @@ public class ReservarHabitacioController {
         
         //intentem aconseguir les dades dels hotels
         try {
-            ArrayList<DadesHotel> resultat = domini.buscarHabitacio(pob, dIni, dFi, numOcup);
+            Set<DadesHotel> resultat = domini.buscarHabitacio(pob, dIni, dFi, numOcup);
             DadesReserva basicData = new DadesReserva();
             basicData.pob = pob;
             basicData.dIni = dIni;
@@ -83,9 +116,10 @@ public class ReservarHabitacioController {
         }
         catch (Exception e) {
             //capturem les excepcions de domini
-            if(e.getMessage().equals("hotelsNoDisp")){
+            if(e.getMessage() != null && e.equals("hotelsNoDisp")){
                 vista.mostraMissatge("No hi ha hotels dosponibles en aquesta població",1);
             }
+            else e.printStackTrace();
         }
         
         
@@ -98,8 +132,12 @@ public class ReservarHabitacioController {
      * @author elena
      */
     public void PrOkSeleccionarHabitacio(String hotel, String tipusHab) {
-        DadesReserva res = domini.seleccionarHabitacio(hotel, tipusHab);
-        vista.mostraPreu(res);
+        try {
+            DadesReserva res = domini.seleccionarHabitacio(hotel, tipusHab);
+            vista.mostraPreu(res);
+        } catch (Exception ex) {
+            Logger.getLogger(ReservarHabitacioController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     /**
@@ -141,6 +179,7 @@ public class ReservarHabitacioController {
     
     /**
      * Confirmació de final
+     * @author clara
      */
     public void PrOkMissatgeFi() {
         vista.tanca();
@@ -148,6 +187,7 @@ public class ReservarHabitacioController {
     
     /**
      * Petició de cancel·lació
+     * @author clara
      */
     public void PrCancel() {
         vista.tanca();
