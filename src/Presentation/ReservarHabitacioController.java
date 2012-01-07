@@ -59,7 +59,6 @@ public class ReservarHabitacioController {
             vista.mostraPoblacions(poblacions);
         }
         catch(Exception e){
-            e.printStackTrace();
             if(e.getMessage().equals("noHiHaPoblacions")){
                 vista.mostraNoHiHaPoblacions();
             }

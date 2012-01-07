@@ -112,6 +112,24 @@ public class Hotel {
         this.preus = preus;
     }
     
+    /**
+     * Setter del string nomPoblacio
+     * @param nomPoblacio 
+     * @author clara
+     */
+    public void setNomPoblacio(String nomPoblacio) {
+        this.nomPoblacio = nomPoblacio;
+    }
+    
+    /**
+     * Getter del string nomPoblacio
+     * @return 
+     * @author clara
+     */
+    public String getNomPoblacio() {
+        return this.nomPoblacio;
+    }
+    
     
     /**
      * obte el preu total d'una habitació que és del tipus tipushab, amb l'estrategia corresponent i 
