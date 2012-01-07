@@ -17,6 +17,9 @@ public class Habitacio {
     Hotel hotel;
     Set<Reserva> reserves;
     
+    public Habitacio() {
+        
+    }
     
     public Habitacio(Integer numero) {
         this.numero = numero;

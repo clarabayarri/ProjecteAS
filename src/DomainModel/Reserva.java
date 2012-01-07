@@ -17,6 +17,8 @@ public class Reserva {
     String idReserva;
     Float preuTotal;
     
+    public Reserva() {}
+    
     public Reserva(Date dIni, Date dFi, String idR, Float preuTotal, Habitacio hab) {
         this.dataInici = dIni;
         this.dataFi = dFi;

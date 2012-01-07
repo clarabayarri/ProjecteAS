@@ -11,7 +11,6 @@ import DomainFactories.CtrlDataFactory;
 import DomainModel.Client;
 import DomainModel.Hotel;
 import DomainModel.Poblacio;
-import TupleTypes.DadesHabitacio;
 import TupleTypes.DadesHotel;
 import TupleTypes.DadesReserva;
 import java.util.ArrayList;
