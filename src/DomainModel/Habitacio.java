@@ -4,8 +4,9 @@
  */
 package DomainModel;
 
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -14,17 +15,17 @@ import java.util.Date;
 public class Habitacio {
     Integer numero;
     Hotel hotel;
-    ArrayList<Reserva> reserves;
+    Set<Reserva> reserves;
     
     
     public Habitacio(Integer numero) {
         this.numero = numero;
-        this.reserves = new ArrayList<Reserva>();
+        this.reserves = new HashSet<Reserva>();
     }
         
     public boolean estaDisp(Date dataInici, Date dataFi) {
-        for (int i = 0; i < reserves.size(); ++i) {
-            if (reserves.get(i).esSolapa(dataInici, dataFi)) return false;
+        for (Reserva r : reserves) {
+            if (r.esSolapa(dataInici, dataFi)) return false;
         }
         return true;
     }
@@ -53,11 +54,11 @@ public class Habitacio {
         this.numero = numero;
     }
 
-    public ArrayList<Reserva> getReserves() {
+    public Set<Reserva> getReserves() {
         return reserves;
     }
 
-    public void setReserves(ArrayList<Reserva> reserves) {
+    public void setReserves(Set<Reserva> reserves) {
         this.reserves = reserves;
     }
     
