@@ -4,6 +4,8 @@
  */
 package DomainModel;
 
+import java.util.Random;
+
 /**
  *
  * @author clara
@@ -86,7 +88,8 @@ public class BonsHotels {
      * @return 
      */
     public String getReservationId() {
-        //TODO: arreglar aixo
-        return "";
+        Random generator = new Random( 19580427 );
+        Integer randomNumber = generator.nextInt();
+        return randomNumber.toString();
     }
 }
