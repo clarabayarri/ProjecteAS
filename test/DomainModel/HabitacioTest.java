@@ -36,7 +36,7 @@ public class HabitacioTest {
             e.printStackTrace();
         }
         
-        Habitacio h = new Habitacio(new HabitacioId("palace", 1), 1, new Hotel("palace", "caaar"));
+        Habitacio h = new Habitacio(new HabitacioId("palace", 1), 1, new Hotel("palace", null, null))  //new HabitacioId("palace", 1), 1, new Hotel("palace", "caaar"));
         session.persist(h);
     }
 

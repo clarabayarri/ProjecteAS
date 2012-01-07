@@ -17,6 +17,10 @@ public class Reserva {
     String idReserva;
     Float preuTotal;
     
+    /* Atributs requerits pel Hibernate */
+    
+    ReservaId id;
+    
     public Reserva() {}
     
     public Reserva(Date dIni, Date dFi, String idR, Float preuTotal) {
@@ -74,5 +78,12 @@ public class Reserva {
     public void setPreuTotal(Float preuTotal) {
         this.preuTotal = preuTotal;
     }
-    
+
+    public ReservaId getId() {
+        return id;
+    }
+
+    public void setId(ReservaId id) {
+        this.id = id;
+    }    
 }
