@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 public class ReservarHabitacioView {
     
     private ReservarHabitacioController controlador;
+    private static LoadingWindow loadingWindow;
     private static CarregarDadesInicials windowNoPoblacions;
     private static Window1 window1;
     private static Window2 window2;
@@ -22,13 +23,26 @@ public class ReservarHabitacioView {
     private static Window5 window5;
     
     /**
-     * Creadora per defecte, necessita saber el controlador que la poseeix per 
-     * avisar-lo d'events
-     * @param controlador
-     * @author clara
+     * Funció necessària per permetre que aparegui la primera pantalla abans no 
+     * es tanqui l'aplicació
      */
+    private static void createAndShowGUI1() {
+        //Mostrar la finestra de loading
+        loadingWindow.setVisible(true);
+        
+    }
+    
     public ReservarHabitacioView(ReservarHabitacioController controlador){
         this.controlador = controlador;
+        
+        loadingWindow = new LoadingWindow();
+        
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                createAndShowGUI1();
+            }
+        });
+        
     }
     
     /**
@@ -37,6 +51,7 @@ public class ReservarHabitacioView {
      * @author clara
      */
     public void mostraNoHiHaPoblacions() {
+        loadingWindow.setVisible(false);
         windowNoPoblacions = new CarregarDadesInicials(this);
         windowNoPoblacions.setVisible(true);
     }
@@ -55,21 +70,24 @@ public class ReservarHabitacioView {
      * @author clara
      */
     public void mostraPoblacions(ArrayList<String> poblacions) {
+        loadingWindow.setVisible(false);
         window1 = new Window1(this);
         window1.loadPoblacions(poblacions);
         window1.setVisible(true);
     }
     
     /**
-     * 
+     * Funció per rebre l'event de quan es selecciona acceptar a la pantalla 1
      * @param poblacio
      * @param dIni
      * @param dFi
      * @param numOcup 
+     * @author clara
      */
     public void confirmacioWindow1(String poblacio, Date dIni, Date dFi, int numOcup) {
         controlador.PrOkObteHabitacions(poblacio, dIni, dFi, numOcup);
     }
+    
     /**
      * mostra les dades dels hotels i les seves habitacions disponibles 
      * @param basicData
@@ -82,6 +100,7 @@ public class ReservarHabitacioView {
         window2.loadData(basicData, dades);
         window2.setVisible(true);
     }
+    
     /**
      * mostra el preu total de la reserva i les dades acumulades sobre la rserva 
      * @param dades 

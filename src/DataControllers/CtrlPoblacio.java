@@ -33,7 +33,7 @@ public class CtrlPoblacio implements ICtrlPoblacio{
 
     
     public ArrayList<Poblacio> tots() {
-        ArrayList<Poblacio> resultat = null;
+        ArrayList<Poblacio> resultat = new ArrayList<Poblacio>();
         Session session = null; 
         try {
             session = HibernateUtil.getSessionFactory().getCurrentSession();

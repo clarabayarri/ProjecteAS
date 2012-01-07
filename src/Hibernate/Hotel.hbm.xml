@@ -23,7 +23,7 @@
         
         <!--set name="comentaris" table="COMENTARI" >
             <key column="NOMHOTEL" />
-            <one-to-many class="DomainModel.Comentari" /-->
-        </set>
+            <one-to-many class="DomainModel.Comentari" />
+        </set-->
     </class>
 </hibernate-mapping>

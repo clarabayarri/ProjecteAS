@@ -34,11 +34,14 @@ public class CasUsReservarHabitacio {
     
     public CasUsReservarHabitacio() {};
     
-    public ArrayList<String> obtePoblacions() {
+    public ArrayList<String> obtePoblacions() throws Exception {
         
         CtrlDataFactory cdf = CtrlDataFactory.getInstance();
         ICtrlPoblacio cp = cdf.getCtrlPoblacio();
         ArrayList<Poblacio> poblacions = cp.tots();
+        if(poblacions.isEmpty()){
+            throw new Exception("noHiHaPoblacions");
+        }
         ArrayList<String> result = new ArrayList<String>();
         for (int i = 0; i < poblacions.size(); ++i) {
             result.add(poblacions.get(i).getNom());

@@ -83,32 +83,52 @@ public class TxInserirDades {
     }
     
     private void carregaHotels() {
-        String[] nomsNY = {"Palace","Hilton","Metropolitan"};
-        String[] nomsBCN = {"Arts","Catalunya","Pensión Pepe"};
-        String[] nomsParis = {"Bonjour","Oulala"};
-        for(String nom : nomsNY){
-            CategoriaHotel categoria = (CategoriaHotel)session.get(CategoriaHotel.class, "Primera");
-            Hotel hotel = new Hotel(nom,"Luxe absolut!","Nova York", categoria);
-            session.persist(hotel);
-        }
-        for(String nom : nomsBCN){
-            CategoriaHotel categoria = (CategoriaHotel)session.get(CategoriaHotel.class, "Segona");
-            Hotel hotel = new Hotel(nom,"Petit i acollidor hotel al centre de la ciutat","Barcelona", categoria);
-            session.persist(hotel);
-        }
-        for(String nom : nomsParis){
-            CategoriaHotel categoria = (CategoriaHotel)session.get(CategoriaHotel.class, "Tercera");
-            Hotel hotel = new Hotel(nom,"Lloc petitet i rústic","Paris", categoria);
+        String[] noms = {"Palace","Hilton","Metropolitan","Arts","Catalunya","Pensión Pepe","Bonjour","Oulala"};
+        String[] poblacions = {"Nova York","Barcelona","Paris"};
+        String[] descripcions = {"Luxe absolut!","Petit i acollidor hotel al centre de la ciutat","Lloc petitet i rústic"};
+        CategoriaHotel categoria1 = (CategoriaHotel)session.get(CategoriaHotel.class, "Primera");
+        CategoriaHotel categoria2 = (CategoriaHotel)session.get(CategoriaHotel.class, "Segona");
+        CategoriaHotel categoria3 = (CategoriaHotel)session.get(CategoriaHotel.class, "Tercera");
+        CategoriaHotel[] categories = {categoria1,categoria2,categoria3};
+        for(int i = 0; i < noms.length; ++i) {
+            Hotel hotel = new Hotel(noms[i],descripcions[i%3],poblacions[i%3],categories[i%3]);
             session.persist(hotel);
         }
     }
     
     private void carregaTipusHabitacions() {
-        
+        String[] noms = {"Individual","Doble","Matrimoni"};
+        String[] descripcions = {"Habitació amb un llit", "Habitació amb dos llits", "Habitació amb llit doble"};
+        for(int i = 0; i < noms.length; ++i){
+            TipusHabitacio tipus = new TipusHabitacio(noms[i],i+1,descripcions[i]);
+        }
     }
     
     private void carregaPreuTipusHabitacions() {
-        
+        String[] nomsHotels = {"Palace","Hilton","Metropolitan","Arts","Catalunya","Pensión Pepe","Bonjour","Oulala"};
+        String[] nomsTipus = {"Individual","Doble","Matrimoni"};
+        float[] preus = {100,200,250};
+        for(int i = 0; i < nomsHotels.length; ++i){
+            for(int j = 0; j < nomsTipus.length; ++j){
+                PreuTipusHabitacio pth = new PreuTipusHabitacio();
+                pth.setId(new PreuTipusHabitacioId(nomsHotels[i],nomsTipus[j]));
+                pth.setPreu(preus[j]);
+                if(j == 0){
+                    AbsoluteDiscountPreuStrategy adps = new AbsoluteDiscountPreuStrategy();
+                    adps.setId(new PreuTipusHabitacioId(nomsHotels[i],nomsTipus[j]));
+                    adps.setDescompte(30);
+                    pth.setStrategy(adps);
+                    session.persist(pth);
+                }
+                else {
+                    PercentDiscountPreuStrategy pdps = new PercentDiscountPreuStrategy();
+                    pdps.setId(new PreuTipusHabitacioId(nomsHotels[i],nomsTipus[j]));
+                    pdps.setPerc(0.7F);
+                    pth.setStrategy(pdps);
+                    session.persist(pth);
+                }
+            }
+        }
     }
     
     private void carregaHabitacions() {
