@@ -112,7 +112,7 @@ public class Hotel {
         DadesHabitacio dhab = null;
         ArrayList<DadesHabitacio> habs = null;
         boolean trobat = false;
-        for(int i = 0;i < preus.size();++i){
+        for(int i = 0; i < preus.size() && !trobat; ++i){
             Integer var = 0;
             if((var = preus.get(i).numDisp(dIni,dFi,this.nom,numOc)) > 0){
                 dhab.preu =preus.get(i).calculaPreu();
