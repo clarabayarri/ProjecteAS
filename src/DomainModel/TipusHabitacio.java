@@ -4,8 +4,9 @@
  */
 package DomainModel;
 
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -15,7 +16,7 @@ public class TipusHabitacio {
     String nom;
     Integer capacitat;
     String descripcio;
-    ArrayList<Habitacio> habitacions;
+    Set<Habitacio> habitacions;
     
     public TipusHabitacio() {
         
@@ -25,7 +26,7 @@ public class TipusHabitacio {
         this.nom = nom;
         this.capacitat = capacitat;
         this.descripcio = descripcio;
-        this.habitacions = new ArrayList<Habitacio>();
+        this.habitacions = new HashSet<Habitacio>();
     }
     
     
@@ -33,9 +34,8 @@ public class TipusHabitacio {
 
         int num = 0;
         if (this.capacitat >= numOcup) {
-            for (int i = 0; i < habitacions.size(); ++i) {
-                if (habitacions.get(i).esDelHotel(nomHotel) &&
-                        habitacions.get(i).estaDisp(dIni, dFi)) ++num;
+            for (Habitacio hab : habitacions) {
+                if (hab.esDelHotel(nomHotel) && hab.estaDisp(dIni, dFi)) ++num;
             }
         }
         return num;
@@ -57,11 +57,11 @@ public class TipusHabitacio {
         this.descripcio = descripcio;
     }
 
-    public ArrayList<Habitacio> getHabitacions() {
+    public Set<Habitacio> getHabitacions() {
         return habitacions;
     }
 
-    public void setHabitacions(ArrayList<Habitacio> habitacions) {
+    public void setHabitacions(Set<Habitacio> habitacions) {
         this.habitacions = habitacions;
     }
 
