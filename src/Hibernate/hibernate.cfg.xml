@@ -4,7 +4,7 @@
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.DerbyDialect</property>
     <property name="hibernate.connection.driver_class">org.apache.derby.jdbc.ClientDriver</property>
-    <property name="hibernate.connection.url">jdbc:derby://localhost:1527/BonHotelsBD</property>
+    <property name="hibernate.connection.url">jdbc:derby://localhost:1527/BonsHotelsBD</property>
     <property name="hibernate.connection.username">as</property>
     <property name="hibernate.connection.password">as</property>
     <property name="hibernate.show_sql">true</property>
@@ -12,5 +12,6 @@
     <property name="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
     <property name="hibernate.current_session_context_class">thread</property>
     <mapping resource="Hibernate/Client.hbm.xml"/>
+    <mapping resource="Hibernate/PreuStrategy.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
