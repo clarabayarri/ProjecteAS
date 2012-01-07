@@ -97,7 +97,8 @@ public class ReservarHabitacioController {
      * @param tipusHab 
      */
     public void PrOkSeleccionarHabitacio(String hotel, String tipusHab) {
-        
+        DadesReserva res = domini.seleccionarHabitacio(hotel, tipusHab);
+        vista.mostraPreu(res);
     }
     
     /**
@@ -105,7 +106,17 @@ public class ReservarHabitacioController {
      * @param dni 
      */
     public void PrOkIntroduirDni(String dni) {
+        try {
+            DadesReserva c = domini.introduirDni(dni);
+            vista.mostraDadesClient(c);
+            //mostra la info de les finestres anteriors
+        }catch(Exception e){
+           if(e.getMessage().equals("ClientNoExisteix")){
+                vista.mostraMissatge("No hi ha cap client al sistema amb aquest DNI",3);
+           }
+        }
         
+    }
     }
     
     /**
@@ -114,6 +125,15 @@ public class ReservarHabitacioController {
      * @param dCad 
      */
     public void PrOkRealitzaPagament(String numTarg, Date dCad){
+         try {
+            domini.pagament(numTarg, dCad);
+            vista.mostraMissatgeFi();
+        }catch(Exception e){
+           if(e.getMessage().equals("ServeiNoDisponible")){
+                vista.mostraMissatge("Error en el pagament",4);
+           }
+           
+        }
         
     }
     

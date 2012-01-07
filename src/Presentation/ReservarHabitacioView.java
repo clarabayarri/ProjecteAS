@@ -59,11 +59,17 @@ public class ReservarHabitacioView {
     }
     
     public void mostraPreu(DadesReserva dades) {
-        
+        window2.setVisible(false);
+        window3 = new Window3();
+        window3.mostraDades(dades);
+        window3.setVisible(true);
     }
     
     public void mostraDadesClient(DadesReserva dades) {
-        
+        window3.setVisible(false);
+        window4 = new Window4();
+        //window4.mostraClient(dades);
+        window4.setVisible(true);
     }
     
     /**
@@ -81,6 +87,8 @@ public class ReservarHabitacioView {
         if(windowIndex == 1){
             window1.mostraMissatge(missatge);
         }
+        else if(windowIndex == 3) window3.mostraError(missatge);
+       // else window4.mostraError(missatge);
     }
     
     /**

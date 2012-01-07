@@ -13,7 +13,7 @@ public class DadesHabitacio {
     public Integer numeroDisp;
     public float preu;
     
-    public DadesHabitacio(String tipus, Integer num, float preu){
+   /* public DadesHabitacio(String tipus, Integer num, float preu){
         this.numeroDisp = num;
         this.tipusHab = tipus;
         this.preu = preu;
@@ -41,5 +41,5 @@ public class DadesHabitacio {
     
     public void setPreu(float preu){
         this.preu = preu;
-    }
+    }*/
 }
