@@ -5,8 +5,9 @@
 package DomainModel;
 
 import TupleTypes.DadesHotel;
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -15,7 +16,7 @@ import java.util.Date;
 public class Poblacio {
     
     String nom;
-    ArrayList<Hotel> hotels;
+    Set<Hotel> hotels = new HashSet();
     private DadesHotel result;
     
     
@@ -27,7 +28,7 @@ public class Poblacio {
     
     public Poblacio(String nom){
         this.nom = nom;
-        this.hotels = new ArrayList<Hotel> ();
+        this.hotels = new HashSet();
     }
     
     /**
@@ -47,10 +48,11 @@ public class Poblacio {
      * @return res
      */
     
-    public ArrayList<DadesHotel> getDisponibles(Date dIni, Date dFi, Integer NumOcup) throws Exception{
-        ArrayList<DadesHotel> res = null;
-        for(int i = 0;i < hotels.size();++i){
-            if(hotels.get(i).estaDisp(dIni, dFi, NumOcup, this.result)){
+    public Set<DadesHotel> getDisponibles(Date dIni, Date dFi, Integer NumOcup) throws Exception{
+        Set<DadesHotel> res = null;
+        for(Hotel h: hotels){
+            DadesHotel result = new DadesHotel();
+            if(h.estaDisp(dIni, dFi, NumOcup, result)){
                 res.add(result);
             }
         }
@@ -71,3 +73,4 @@ public class Poblacio {
     
     
 }
+
