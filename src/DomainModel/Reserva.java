@@ -19,12 +19,15 @@ public class Reserva {
     
     public Reserva() {}
     
-    public Reserva(Date dIni, Date dFi, String idR, Float preuTotal, Habitacio hab) {
+    public Reserva(Date dIni, Date dFi, String idR, Float preuTotal) {
         this.dataInici = dIni;
         this.dataFi = dFi;
         this.dataReserva = new Date();
         this.idReserva = idR;
         this.preuTotal = preuTotal;
+    }
+    
+    public void afegirAHabitacio(Habitacio hab) {
         hab.afReserva(this);
     }
     

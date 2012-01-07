@@ -4,7 +4,6 @@
  */
 package DomainModel;
 
-import org.hibernate.SessionFactory;
 import org.hibernate.Session;
 import Hibernate.HibernateUtil;
 import org.junit.After;
@@ -21,7 +20,6 @@ import static org.junit.Assert.*;
 public class ClientTest {
     
     static Session session = null;
-    Client client = null;
     
     public ClientTest() {
     }
