@@ -206,7 +206,6 @@ public class Hotel {
      * fa la mitja de les avalucions dels comentaris que té l'hotel
      * @return 
      */
-
     
     private float mitjaAval(){
         Integer suma = 0;
