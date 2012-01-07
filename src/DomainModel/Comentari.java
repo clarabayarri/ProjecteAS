@@ -15,6 +15,9 @@ public class Comentari {
     String descripcio;
     Date data;
     
+    //////////reqerit
+    String nomHotel;
+    
     public Comentari(){};
     
     /**
@@ -25,11 +28,11 @@ public class Comentari {
      * @param h és le nom de l'hotel del qual s'ha fet el comentari
      */
     
-    public Comentari(Integer aval, String desc, Date data,Hotel h){
+    public Comentari(Integer aval, String desc, Date data,String h){
         this.avaluacio = aval;
         this.descripcio = desc;
         this.data = data;
-        h.afComentari(this);
+        this.nomHotel = h;
     }
     
     
