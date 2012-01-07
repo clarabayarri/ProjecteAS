@@ -19,7 +19,8 @@ import java.util.Date;
  * @author elena
  */
 public class Window3 extends javax.swing.JFrame {
-
+    
+    private ReservarHabitacioView viewController;
     /** Creates new form Window3 */
     public Window3() {
         initComponents();
@@ -45,9 +46,6 @@ public class Window3 extends javax.swing.JFrame {
         
     }
     
-    public String getDni(){
-        return Tdni.getText();
-    }
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -99,8 +97,18 @@ public class Window3 extends javax.swing.JFrame {
         Tdni.setText("jTextField8");
 
         dacord.setText("D'acord");
+        dacord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dacordActionPerformed(evt);
+            }
+        });
 
         cancela.setText("Cancel·la");
+        cancela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelaActionPerformed(evt);
+            }
+        });
 
         Tpoblacio.setText("jTextField1");
 
@@ -130,7 +138,7 @@ public class Window3 extends javax.swing.JFrame {
             .add(layout.createSequentialGroup()
                 .addContainerGap()
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(Terror, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE)
+                    .add(Terror, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE)
                     .add(layout.createSequentialGroup()
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(poblacio)
@@ -207,6 +215,16 @@ public class Window3 extends javax.swing.JFrame {
     private void TdIniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TdIniActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TdIniActionPerformed
+
+    private void cancelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelaActionPerformed
+        // TODO add your handling code here:
+         viewController.tanca();
+    }//GEN-LAST:event_cancelaActionPerformed
+
+    private void dacordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dacordActionPerformed
+        // TODO add your handling code here:
+        viewController.confirmacioWindow3(this.Tdni);
+    }//GEN-LAST:event_dacordActionPerformed
     
     /**
      * @param args the command line arguments

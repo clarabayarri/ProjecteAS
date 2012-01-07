@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  *
- * @author clara
+ * @author clara i elena 
  */
 public class ReservarHabitacioController {
     
@@ -95,6 +95,7 @@ public class ReservarHabitacioController {
      * Transició entre la pantalla 2 i 3
      * @param hotel
      * @param tipusHab 
+     * @author elena
      */
     public void PrOkSeleccionarHabitacio(String hotel, String tipusHab) {
         DadesReserva res = domini.seleccionarHabitacio(hotel, tipusHab);
@@ -104,6 +105,7 @@ public class ReservarHabitacioController {
     /**
      * Transició entre la pantalla 3 i 4
      * @param dni 
+     * @author elena 
      */
     public void PrOkIntroduirDni(String dni) {
         try {
@@ -122,6 +124,7 @@ public class ReservarHabitacioController {
      * Transició entre la pantalla 4 i 5
      * @param numTarg
      * @param dCad 
+     * @author elena 
      */
     public void PrOkRealitzaPagament(String numTarg, Date dCad){
          try {

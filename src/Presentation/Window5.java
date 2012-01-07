@@ -15,7 +15,7 @@ package Presentation;
  * @author clara
  */
 public class Window5 extends javax.swing.JFrame {
-
+    private ReservarHabitacioView viewController;
     /** Creates new form Window5 */
     public Window5() {
         initComponents();
@@ -38,6 +38,11 @@ public class Window5 extends javax.swing.JFrame {
         jLabel1.setText("El pagament s'ha realitzat correctament");
 
         jButton1.setText("D'acord");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -65,6 +70,12 @@ public class Window5 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+            // TODO add your handling code here:
+        //tanca l'aplicacio
+         viewController.tanca();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
