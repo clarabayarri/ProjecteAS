@@ -6,7 +6,6 @@ package DomainModel;
 
 import TupleTypes.DadesHabitacio;
 import TupleTypes.DadesHotel;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -31,13 +30,11 @@ public class Hotel {
      * @param pob és el nom de la població a la que pertany l'hotel
      */
     
-    public Hotel(String nomH, String des, Poblacio pob){
+    public Hotel(String nomH, String des){
         this.descripcio = des;
         this.nom = nomH;
-        
         this.comentaris = new HashSet();
         this.preus = new  HashSet();
-        pob.afHotel(this);
     }
 
     
@@ -49,6 +46,67 @@ public class Hotel {
     public String getNom(){
         return this.nom;
     }
+    /**
+     * retorna la descripcio de l'hotel 
+     * @return 
+     */
+    
+    public String getDescripcio(){
+        return this.descripcio;
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public Set<Comentari> getComentaris() {
+        return this.comentaris;
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+
+    public Set<PreuTipusHabitacio> getPreus() {
+        return this.preus;
+    }
+    
+    /**
+     * 
+     * @param n 
+     */
+    
+    public void setNom(String n){
+        this.nom = n;
+    }
+    
+    /**
+     * 
+     * @param d 
+     */
+    public void setDescripcio(String d){
+        this.descripcio = d;
+    }
+    
+    /**
+     * 
+     * @param comentaris 
+     */
+    
+    public void setComentaris (Set<Comentari> comentaris){
+        this.comentaris = comentaris;
+    }
+    
+    /**
+     * 
+     * @param preus 
+     */
+    
+    public void setPreus(Set<PreuTipusHabitacio> preus){
+        this.preus = preus;
+    }
+    
     
     /**
      * obte el preu total d'una habitació que és del tipus tipushab, amb l'estrategia corresponent i 
@@ -137,14 +195,11 @@ public class Hotel {
         return false;
     }
 
-    /**
-     * afegeix un comentari al
-     * @param c és del tipus Comentari al ArrayList<Comentari> comentaris; 
-     */
     
+    /*
     public void afComentari(Comentari c) {
         comentaris.add(c);
-    }
+    }*/
     
     
     /**
