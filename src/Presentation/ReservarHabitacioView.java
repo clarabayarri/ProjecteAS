@@ -47,17 +47,33 @@ public class ReservarHabitacioView {
         window1.loadPoblacions(poblacions);
     }
     
+    /**
+     * 
+     * @param poblacio
+     * @param dIni
+     * @param dFi
+     * @param numOcup 
+     */
     public void confirmacioWindow1(String poblacio, Date dIni, Date dFi, int numOcup) {
         controlador.PrOkObteHabitacions(poblacio, dIni, dFi, numOcup);
     }
-    
+    /**
+     * mostra les dades dels hotels i les seves habitacions disponibles 
+     * @param basicData
+     * @param dades 
+     * @author elena
+     */
     public void mostraHabitacions(DadesReserva basicData, ArrayList<DadesHotel> dades) {
         window1.setVisible(false);
         window2 = new Window2();
         window2.loadData(basicData, dades);
         window2.setVisible(true);
     }
-    
+    /**
+     * mostra el preu total de la reserva i les dades acumulades sobre la rserva 
+     * @param dades 
+     * @author elena
+     */
     public void mostraPreu(DadesReserva dades) {
         window2.setVisible(false);
         window3 = new Window3();
@@ -65,6 +81,11 @@ public class ReservarHabitacioView {
         window3.setVisible(true);
     }
     
+    /**
+     * mostra les dades del client i totes les dades acumulades de la reserva
+     * @param dades 
+     * @author elena
+     */
     public void mostraDadesClient(DadesReserva dades) {
         window3.setVisible(false);
         window4 = new Window4();
@@ -74,14 +95,18 @@ public class ReservarHabitacioView {
     
     /**
      * Pantalla de finalització on es mostra el missatge de confirmació del pagament.
+     * @author elena
      */
     public void mostraMissatgeFi() {
-        
+        window4.setVisible(false);
+        window5 = new Window5();
+        window5.setVisible(true);
     }
     
     /**
      * Mostra el missatge corresponent a la message area
      * @param missatge 
+     * @author clara i elena  
      */
     public void mostraMissatge(String missatge, int windowIndex) {
         if(windowIndex == 1){
@@ -93,6 +118,7 @@ public class ReservarHabitacioView {
     
     /**
      * Tanca la finestra de l'aplicació
+     * @author clara
      */
     public void tanca() {
         System.exit(0);
