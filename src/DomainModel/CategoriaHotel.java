@@ -6,16 +6,25 @@ package DomainModel;
 
 /**
  *
- * @author elena_gratallops
+ * @author elena
  */
 public class CategoriaHotel {
     
     String nom;
     
+    public CategoriaHotel(){};
+    /**
+     * creadora 
+     * @param cat 
+     */
     public CategoriaHotel(String cat){
         this.nom = cat;
+       
     }
-    
+    /**
+     * 
+     * @return el nom de la categoria 
+     */
     public String getNom(){
         return this.nom;
     }
