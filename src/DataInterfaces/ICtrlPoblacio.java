@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 public interface ICtrlPoblacio {
     
-    public Poblacio get(String nom);
+    public Poblacio get(String nom) throws Exception;
     
-    public ArrayList<Poblacio> tots();
+    public ArrayList<Poblacio> tots() throws Exception;
 }

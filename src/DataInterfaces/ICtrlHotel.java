@@ -10,6 +10,6 @@ import DomainModel.Hotel;
  */
 public interface ICtrlHotel {
     
-    public Hotel get(String nom);
+    public Hotel get(String nom) throws Exception;
     
 }
