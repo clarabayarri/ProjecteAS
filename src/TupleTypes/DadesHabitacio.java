@@ -22,7 +22,7 @@ public class DadesHabitacio {
     public String getTipusHab() {
         return this.tipusHab;
     }
-    
+    //aaaa
     public Integer getNumeroDisp(){
         return this.numeroDisp;
     }
