@@ -24,7 +24,7 @@ public class CtrlHabitacio implements ICtrlHabitacio {
             h = (Habitacio) session.get(Habitacio.class, id);
         } catch (RuntimeException e) {
             session.getTransaction().rollback();
-            throw new Exception("clientNoExisteix");
+            throw new Exception("habitacioNoExisteix");
         }
         return h;
     }    
