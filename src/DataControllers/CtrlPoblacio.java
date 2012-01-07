@@ -21,8 +21,8 @@ public class CtrlPoblacio implements ICtrlPoblacio{
         //TODO: this is a stub.
         
         ArrayList<Poblacio> resultat = new ArrayList<Poblacio>();
-        Poblacio p = new Poblacio("Barcelona");
-        resultat.add(p);
+        //Poblacio p = new Poblacio("Barcelona");
+        //resultat.add(p);
         
         return resultat;
     }

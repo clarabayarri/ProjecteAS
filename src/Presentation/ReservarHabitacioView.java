@@ -14,29 +14,39 @@ import javax.swing.JTextField;
 public class ReservarHabitacioView {
     
     private ReservarHabitacioController controlador;
+    private static CarregarDadesInicials windowNoPoblacions;
     private static Window1 window1;
     private static Window2 window2;
     private static Window3 window3;
     private static Window4 window4;
     private static Window5 window5;
     
-    private static void createAndShowGUI1() {
-        //Mostrar la finestra 1
-        window1.setVisible(true);
-        
-    }
-    
+    /**
+     * Creadora per defecte, necessita saber el controlador que la poseeix per 
+     * avisar-lo d'events
+     * @param controlador
+     * @author clara
+     */
     public ReservarHabitacioView(ReservarHabitacioController controlador){
         this.controlador = controlador;
-        
-        window1 = new Window1(this);
-        
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowGUI1();
-            }
-        });
-        
+    }
+    
+    /**
+     * Mostra la pantalla que indica que no hi ha dades al sistema i permet 
+     * carregar-ne
+     * @author clara
+     */
+    public void mostraNoHiHaPoblacions() {
+        windowNoPoblacions = new CarregarDadesInicials(this);
+        windowNoPoblacions.setVisible(true);
+    }
+    
+    /**
+     * Carrega les dades a la base de dades per poder utilitzar l'aplicació
+     * @author clara
+     */
+    public void carregaDadesInicials() {
+        controlador.carregaDadesDeProva();
     }
     
     /**
@@ -45,7 +55,15 @@ public class ReservarHabitacioView {
      * @author clara
      */
     public void mostraPoblacions(ArrayList<String> poblacions) {
+        window1 = new Window1(this);
         window1.loadPoblacions(poblacions);
+        window1.setVisible(true);
+        /*javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                createAndShowGUI1();
+            }
+        });*/
+        
     }
     
     /**

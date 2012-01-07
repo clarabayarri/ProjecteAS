@@ -1,11 +1,14 @@
 package Presentation;
 
 import DomainControllers.CasUsReservarHabitacio;
+import DomainControllers.TxInserirDades;
 import TupleTypes.DadesHotel;
 import TupleTypes.DadesReserva;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -32,16 +35,43 @@ public class ReservarHabitacioController {
         });
     }
     
-    private void preparaPoblacions() {
-        ArrayList<String> poblacions = domini.obtePoblacions();
-        vista.mostraPoblacions(poblacions);
-    }
-    
+    /**
+     * Funció per obtenir la instància singleton
+     * @return 
+     * @author clara
+     */
     public static ReservarHabitacioController getInstance() {
         if(singletonObject == null){
             singletonObject = new ReservarHabitacioController();
         }
         return singletonObject;
+    }
+    
+    /**
+     * Obté les poblacions a mostrar en la primera pantalla, i si no en troba 
+     * carrega la pantalla d'error
+     * @author clara
+     */
+    private void preparaPoblacions() {
+        try {
+            ArrayList<String> poblacions = domini.obtePoblacions();
+            vista.mostraPoblacions(poblacions);
+        }
+        catch(Exception e){
+            if(e.getMessage().equals("noHiHaPoblacions")){
+                vista.mostraNoHiHaPoblacions();
+            }
+        }
+        
+    }
+    
+    /**
+     * Ordena inserir a la BD dades amb les que poder provar l'aplicació
+     */
+    public void carregaDadesDeProva() {
+        TxInserirDades transaccio = new TxInserirDades();
+        transaccio.executar();
+        preparaPoblacions();
     }
     
     /**
@@ -98,8 +128,12 @@ public class ReservarHabitacioController {
      * @author elena
      */
     public void PrOkSeleccionarHabitacio(String hotel, String tipusHab) {
-        DadesReserva res = domini.seleccionarHabitacio(hotel, tipusHab);
-        vista.mostraPreu(res);
+        try {
+            DadesReserva res = domini.seleccionarHabitacio(hotel, tipusHab);
+            vista.mostraPreu(res);
+        } catch (Exception ex) {
+            Logger.getLogger(ReservarHabitacioController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     /**
