@@ -17,12 +17,17 @@ public class Habitacio {
     Hotel hotel;
     Set<Reserva> reserves;
     
+    /* Atributs requerits pel Hibernate */
+    HabitacioId id;
+    
     public Habitacio() {
         
     }
     
-    public Habitacio(Integer numero) {
+    public Habitacio(HabitacioId id, Integer numero, Hotel hotel) {
+        this.id = id;
         this.numero = numero;
+        this.hotel = hotel;
         this.reserves = new HashSet<Reserva>();
     }
         
@@ -64,6 +69,12 @@ public class Habitacio {
     public void setReserves(Set<Reserva> reserves) {
         this.reserves = reserves;
     }
-    
-    
+
+    public HabitacioId getId() {
+        return id;
+    }
+
+    public void setId(HabitacioId id) {
+        this.id = id;
+    }
 }
