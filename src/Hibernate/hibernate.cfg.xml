@@ -15,6 +15,5 @@
     <mapping resource="Hibernate/PreuStrategy.hbm.xml"/>
     <mapping resource="Hibernate/PreuTipusHabitacio.hbm.xml"/>
     <mapping resource="Hibernate/Reserva.hbm.xml"/>
-
   </session-factory>
 </hibernate-configuration>
