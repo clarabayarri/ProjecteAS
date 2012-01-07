@@ -219,8 +219,6 @@ public class Hotel {
         return suma/i;
     }
     
-    
-    
 }
 
 
