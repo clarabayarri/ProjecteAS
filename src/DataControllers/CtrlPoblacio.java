@@ -5,7 +5,6 @@ import DomainModel.Poblacio;
 import Hibernate.HibernateUtil;
 import java.util.ArrayList;
 import java.util.List;
-import javax.management.Query;
 import org.hibernate.Session;
 
 
@@ -33,26 +32,19 @@ public class CtrlPoblacio implements ICtrlPoblacio{
     }
 
     @Override
-    public ArrayList<Poblacio> tots() throws Exception {
+    public List<Poblacio> tots() throws Exception {
         //throw new UnsupportedOperationException("Not supported yet.");
-        ArrayList<Poblacio> resultat = new ArrayList<Poblacio>();
+        List<Poblacio> resultat = new ArrayList<Poblacio>();
         Session session = null; 
-        Poblacio p = null;
-        /*try {
-            
+        try {
             session = HibernateUtil.getSessionFactory().getCurrentSession();
             session.beginTransaction();
-            Query q = (Query) session.createSQLQuery("SELECT NOM FROM POBLACIO").addEntity(Poblacio.class);
-            List result = session;
+            resultat = session.createQuery("from Poblacio").list();
             
-            
-                    
-            //p = (Poblacio) session.get(Poblacio.class, nom);
-          
         } catch (RuntimeException e) {
             session.getTransaction().rollback();
             throw new Exception("noHiHaPoblacions");
-        }*/
+        }
         return resultat;
     }
         
