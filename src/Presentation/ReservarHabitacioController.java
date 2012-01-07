@@ -117,7 +117,6 @@ public class ReservarHabitacioController {
         }
         
     }
-    }
     
     /**
      * Transició entre la pantalla 4 i 5
