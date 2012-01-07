@@ -11,8 +11,7 @@ import java.util.Date;
  * @author lluisgh28
  */
 public class ReservaId {
-    String nomHotel;
-    Integer numeroHabitacio;
+    HabitacioId habitacioId;
     Date dataInici;
 
     public Date getDataInici() {
@@ -23,21 +22,12 @@ public class ReservaId {
         this.dataInici = dataInici;
     }
 
-    public String getNomHotel() {
-        return nomHotel;
+    public HabitacioId getHabitacioId() {
+        return habitacioId;
     }
 
-    public void setNomHotel(String nomHotel) {
-        this.nomHotel = nomHotel;
+    public void setHabitacioId(HabitacioId habitacioId) {
+        this.habitacioId = habitacioId;
     }
-
-    public Integer getNumeroHabitacio() {
-        return numeroHabitacio;
-    }
-
-    public void setNumeroHabitacio(Integer numeroHabitacio) {
-        this.numeroHabitacio = numeroHabitacio;
-    }
-    
     
 }
