@@ -73,7 +73,7 @@ public class CasUsReservarHabitacio {
         return result;
     }
     
-    public DadesReserva introduirDni(String dni) {
+    public DadesReserva introduirDni(String dni) throws Exception {
         
         CtrlDataFactory cdf = CtrlDataFactory.getInstance();
         ICtrlClient cc = cdf.getCtrlClient();

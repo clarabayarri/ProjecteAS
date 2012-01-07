@@ -111,7 +111,7 @@ public class ReservarHabitacioController {
             vista.mostraDadesClient(c);
             //mostra la info de les finestres anteriors
         }catch(Exception e){
-           if(e.getMessage().equals("ClientNoExisteix")){
+           if(e.getMessage().equals("clientNoExisteix")){
                 vista.mostraMissatge("No hi ha cap client al sistema amb aquest DNI",3);
            }
         }
@@ -128,7 +128,7 @@ public class ReservarHabitacioController {
             domini.pagament(numTarg, dCad);
             vista.mostraMissatgeFi();
         }catch(Exception e){
-           if(e.getMessage().equals("ServeiNoDisponible")){
+           if(e.getMessage().equals("serveiNoDisponible")){
                 vista.mostraMissatge("Error en el pagament",4);
            }
            
