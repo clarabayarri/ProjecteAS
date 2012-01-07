@@ -14,6 +14,9 @@ public class Client {
     String cognoms;
     String email;
 
+    public Client() {
+        
+    }
     
     public Client(String dni, String nom, String cognoms, String email) {
         this.dni = dni;

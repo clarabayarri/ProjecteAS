@@ -44,7 +44,6 @@ public class ReservarHabitacioView {
      * @author clara
      */
     public void mostraPoblacions(ArrayList<String> poblacions) {
-        System.out.println("fins aqui ok");
         window1.loadPoblacions(poblacions);
     }
     
