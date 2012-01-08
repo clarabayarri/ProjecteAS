@@ -10,10 +10,10 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * Classe per provar la estratègia absoluta
+ *
  * @author clara
  */
-public class AbsoluteDiscountPreuStrategyTest {
+public class PercentDiscountPreuStrategyTest {
     
     private static Session session = null;
     
@@ -22,9 +22,9 @@ public class AbsoluteDiscountPreuStrategyTest {
     private static String nomHotel = "hotel de prova";
     private static String nomTipus = "tipus de prova";
     private static float preu = 100;
-    private static float descompte = 50;
+    private static float perc = 0.7F;
     
-    public AbsoluteDiscountPreuStrategyTest() {
+    public PercentDiscountPreuStrategyTest() {
     }
 
     @BeforeClass
@@ -33,7 +33,7 @@ public class AbsoluteDiscountPreuStrategyTest {
             session = HibernateUtil.getSessionFactory().getCurrentSession();
             session.beginTransaction();
     
-            AbsoluteDiscountPreuStrategy adps = new AbsoluteDiscountPreuStrategy(descompte);
+            PercentDiscountPreuStrategy pdps = new PercentDiscountPreuStrategy(perc);
             Hotel hotel = new Hotel();
             hotel.setNom(nomHotel);
             session.saveOrUpdate(hotel);
@@ -44,24 +44,22 @@ public class AbsoluteDiscountPreuStrategyTest {
             PreuTipusHabitacioId id = new PreuTipusHabitacioId(nomHotel,nomTipus);
             pth.setId(id);
             pth.setPreu(preu);
-            adps.setId(id);
-            pth.setStrategy(adps);
+            pdps.setId(id);
+            pth.setStrategy(pdps);
             session.saveOrUpdate(tipus);
             session.saveOrUpdate(pth);
-            session.saveOrUpdate(adps);
+            session.saveOrUpdate(pdps);
         } catch (RuntimeException e) {
             session.getTransaction().rollback();
             e.printStackTrace();
         }
-
-        
     }
 
     @AfterClass
     public static void tearDownClass() throws Exception {
         if (session != null) {
-            AbsoluteDiscountPreuStrategy adps = (AbsoluteDiscountPreuStrategy) 
-                session.get(AbsoluteDiscountPreuStrategy.class, 
+            PercentDiscountPreuStrategy adps = (PercentDiscountPreuStrategy) 
+                session.get(PercentDiscountPreuStrategy.class, 
                 new PreuTipusHabitacioId(nomHotel,nomTipus));
             session.delete(adps);
             PreuTipusHabitacio pth = (PreuTipusHabitacio) 
@@ -86,7 +84,7 @@ public class AbsoluteDiscountPreuStrategyTest {
     }
 
     /**
-     * Test of calculaPreu method, of class AbsoluteDiscountPreuStrategy.
+     * Test of calculaPreu method, of class PercentDiscountPreuStrategy.
      * Sense Hibernate
      */
     @Test
@@ -94,15 +92,15 @@ public class AbsoluteDiscountPreuStrategyTest {
         System.out.println("calculaPreu");
         PreuTipusHabitacio p = new PreuTipusHabitacio();
         p.setPreu(preu);
-        AbsoluteDiscountPreuStrategy instance = new AbsoluteDiscountPreuStrategy();
-        instance.setDescompte(descompte);
-        float expResult = (preu-descompte);
+        PercentDiscountPreuStrategy instance = new PercentDiscountPreuStrategy();
+        instance.setPerc(perc);
+        float expResult = (preu*perc);
         float result = instance.calculaPreu(p);
         assertEquals(expResult, result, 0.0);
     }
     
     /**
-     * Test of calculaPreu method, of class AbsoluteDiscountPreuStrategy.
+     * Test of calculaPreu method, of class PercentDiscountPreuStrategy.
      * Amb Hibernate
      */
     @Test
@@ -111,10 +109,10 @@ public class AbsoluteDiscountPreuStrategyTest {
         PreuTipusHabitacio p = (PreuTipusHabitacio) session.get(
                 PreuTipusHabitacio.class, new PreuTipusHabitacioId(nomHotel,nomTipus));
         
-        AbsoluteDiscountPreuStrategy instance = (AbsoluteDiscountPreuStrategy) session.get(
-                AbsoluteDiscountPreuStrategy.class, new PreuTipusHabitacioId(nomHotel,nomTipus));
+        PercentDiscountPreuStrategy instance = (PercentDiscountPreuStrategy) session.get(
+                PercentDiscountPreuStrategy.class, new PreuTipusHabitacioId(nomHotel,nomTipus));
         
-        float expResult = (preu-descompte);
+        float expResult = (preu*perc);
         float result = instance.calculaPreu(p);
         assertEquals(expResult, result, 0.0);
     }
