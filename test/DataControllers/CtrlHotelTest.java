@@ -4,6 +4,7 @@
  */
 package DataControllers;
 
+import DomainModel.CategoriaHotel;
 import DomainModel.Poblacio;
 import Hibernate.HibernateUtil;
 import org.hibernate.Session;
@@ -21,7 +22,7 @@ import static org.junit.Assert.*;
  */
 public class CtrlHotelTest {
     
-    static Session session = null;
+    private static Session session = null;
     
     public CtrlHotelTest() {
     }
@@ -33,9 +34,11 @@ public class CtrlHotelTest {
             session.beginTransaction();
             
             //Insertem instàncies via hibernate per mirar si es recuperen bé
+            CategoriaHotel categoria = new CategoriaHotel("categoria de prova");
+            session.persist(categoria);
             Poblacio poblacio = new Poblacio("Ciutat de prova");
             session.persist(poblacio);
-            Hotel hotel = new Hotel("Hotel de prova","Luxós hotel al centre de la ciutat.","Ciutat de prova");
+            Hotel hotel = new Hotel("Hotel de prova","Luxós hotel al centre de la ciutat.","Ciutat de prova",categoria);
             session.persist(hotel);
         } catch (RuntimeException e) {
             session.getTransaction().rollback();

@@ -10,6 +10,7 @@
  */
 package Presentation;
 
+import java.awt.Color;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -85,7 +86,8 @@ public class Window1 extends javax.swing.JFrame implements com.imagine.component
 
         numocLabel.setText("Número d'ocupants");
 
-        messageArea.setText("Message area");
+        messageArea.setText(" ");
+        messageArea.setForeground(Color.red);
 
         confirmButton.setText("D'acord");
         confirmButton.addActionListener(new java.awt.event.ActionListener() {
@@ -127,10 +129,6 @@ public class Window1 extends javax.swing.JFrame implements com.imagine.component
                             .add(dFiCalendar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 227, Short.MAX_VALUE))))
                 .add(156, 156, 156))
             .add(layout.createSequentialGroup()
-                .add(147, 147, 147)
-                .add(messageArea, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 258, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(227, Short.MAX_VALUE))
-            .add(layout.createSequentialGroup()
                 .add(85, 85, 85)
                 .add(confirmButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 120, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 160, Short.MAX_VALUE)
@@ -140,6 +138,10 @@ public class Window1 extends javax.swing.JFrame implements com.imagine.component
                 .addContainerGap()
                 .add(numocLabel)
                 .addContainerGap(489, Short.MAX_VALUE))
+            .add(layout.createSequentialGroup()
+                .addContainerGap()
+                .add(messageArea, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 592, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -169,7 +171,7 @@ public class Window1 extends javax.swing.JFrame implements com.imagine.component
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(confirmButton)
                     .add(cancelButton))
-                .add(47, 47, 47))
+                .add(63, 63, 63))
         );
 
         pack();

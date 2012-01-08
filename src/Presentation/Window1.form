@@ -59,11 +59,6 @@
               <EmptySpace min="-2" pref="156" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
-              <Component id="messageArea" min="-2" pref="258" max="-2" attributes="0"/>
-              <EmptySpace pref="227" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
               <Component id="confirmButton" min="-2" pref="120" max="-2" attributes="0"/>
               <EmptySpace pref="160" max="32767" attributes="0"/>
@@ -74,6 +69,11 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="numocLabel" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="489" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="messageArea" pref="592" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -112,7 +112,7 @@
                   <Component id="confirmButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cancelButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -159,8 +159,11 @@
     </Component>
     <Component class="javax.swing.JLabel" name="messageArea">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Message area"/>
+        <Property name="text" type="java.lang.String" value=" "/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="messageArea.setForeground(Color.red);"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="confirmButton">
       <Properties>

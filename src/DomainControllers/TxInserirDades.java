@@ -6,8 +6,6 @@ package DomainControllers;
 
 import DomainModel.*;
 import Hibernate.HibernateUtil;
-import java.util.HashSet;
-import java.util.Set;
 import org.hibernate.Session;
 
 /**
@@ -101,7 +99,7 @@ public class TxInserirDades {
         String[] descripcions = {"Habitació amb un llit", "Habitació amb dos llits", "Habitació amb llit doble"};
         for(int i = 0; i < noms.length; ++i){
             TipusHabitacio tipus = new TipusHabitacio(noms[i],i+1,descripcions[i]);
-            session.persist(tipus);
+            session.saveOrUpdate(tipus);
         }
     }
     
@@ -119,29 +117,43 @@ public class TxInserirDades {
                     adps.setId(new PreuTipusHabitacioId(nomsHotels[i],nomsTipus[j]));
                     adps.setDescompte(30);
                     pth.setStrategy(adps);
-                    session.persist(pth);
+                    session.saveOrUpdate(pth);
+                    session.saveOrUpdate(adps);
                 }
                 else {
                     PercentDiscountPreuStrategy pdps = new PercentDiscountPreuStrategy();
                     pdps.setId(new PreuTipusHabitacioId(nomsHotels[i],nomsTipus[j]));
                     pdps.setPerc(0.7F);
                     pth.setStrategy(pdps);
-                    session.persist(pth);
+                    session.saveOrUpdate(pth);
+                    session.saveOrUpdate(pdps);
                 }
             }
         }
     }
     
     private void carregaHabitacions() {
-        
+        String[] nomsHotels = {"Palace","Hilton","Metropolitan","Arts","Catalunya","Pensión Pepe","Bonjour","Oulala"};
+        String[] nomsTipus = {"Individual","Doble","Matrimoni"};
+        float[] preus = {100,200,250};
+        for(int i = 0; i < nomsHotels.length; ++i){
+            for(int j = 0; j < nomsTipus.length; ++j){
+                Habitacio h = new Habitacio();
+                h.setId(new HabitacioId(nomsHotels[i],j));
+                session.persist(h);
+            }
+        }
     }
     
     private void carregaClients() {
-        
+        Client c = new Client("3","Nom","Cognom","Email");
+        session.saveOrUpdate(c);
     }
     
     private void carregaReserves() {
-        
+        /*Reserva r = new Reserva();
+        r.setId(new ReservaId("Palace",1,new Date()));
+        session.saveOrUpdate(r);*/
     }
     
     private void carregaComentaris() {

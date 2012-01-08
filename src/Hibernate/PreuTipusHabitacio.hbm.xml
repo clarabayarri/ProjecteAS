@@ -6,7 +6,9 @@
             <key-property name="nomhotel" type="string">
                 <column name="NOMHOTEL" length="100" />
             </key-property>
-            <key-many-to-one name="nomtipus" column="NOMTIPUS" class="DomainModel.TipusHabitacio" />
+            <key-property name="nomtipus" >
+                <column name="NOMTIPUS"/>
+            </key-property>
         </composite-id>
         <property name="preu" type="java.lang.Float">
             <column name="PREU" precision="52" scale="0" />
