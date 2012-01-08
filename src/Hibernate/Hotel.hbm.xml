@@ -12,8 +12,8 @@
 
         <property name="nomPoblacio" type="string" column="NOMPOBLACIO" />
 
-        <!--many-to-one name="categoria" class="DomainModel.CategoriaHotel" 
-        column="NOMCATEGORIA" /-->
+        <many-to-one name="categoria" class="DomainModel.CategoriaHotel" 
+        column="NOMCATEGORIA"/>
         
         <set name="preus" table="PREUTIPUSHABITACIO" >
             <key column="NOMHOTEL" />
@@ -21,9 +21,9 @@
             
         </set>
         
-        <!--set name="comentaris" table="COMENTARI" >
+        <set name="comentaris" table="COMENTARI" >
             <key column="NOMHOTEL" />
             <one-to-many class="DomainModel.Comentari" />
-        </set-->
+        </set>
     </class>
 </hibernate-mapping>
