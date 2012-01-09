@@ -11,6 +11,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import static org.junit.Assert.*;
 
 /**
  *
@@ -27,13 +28,14 @@ public class CategoriaHotelTest {
         try {
             session = HibernateUtil.getSessionFactory().getCurrentSession();
             session.beginTransaction();
+            CategoriaHotel cat = new CategoriaHotel("tres estrelles");
+            session.persist(cat);
         } catch (RuntimeException e) {
             session.getTransaction().rollback();
             e.printStackTrace();
         }
 
-        CategoriaHotel cat = new CategoriaHotel("tres estrelles");
-        session.persist(cat);
+        
         
         
 
@@ -46,9 +48,6 @@ public class CategoriaHotelTest {
             session.delete(cat);
             session.getTransaction().commit();
         }
-        
-        
-        //session.flush();
     }
     
     @Before
@@ -63,8 +62,8 @@ public class CategoriaHotelTest {
     @Test
     public void testHibernateFetch() {
         CategoriaHotel cat = (CategoriaHotel) session.get(CategoriaHotel.class, "tres estrelles");
-        String prova  = cat.nom;
-        //assertEquals(prova, "tres estrelles");
+        String prova  = cat.getNom();
+        assertEquals(prova, "tres estrelles");
     }
 
   

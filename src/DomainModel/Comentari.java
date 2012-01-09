@@ -11,11 +11,14 @@ import java.util.Date;
  * @author elena
  */
 public class Comentari {
-    Integer avaluacio;
-    String descripcio;
-    Date data; 
-    //////////reqerit per l'hibernate
-    String nomHotel;
+    private Integer avaluacio;
+    private String descripcio;
+    private Date data;
+    
+    //atribut reqerit per l'hibernate
+    //private String nomHotel;
+    //private String dniC;
+    private ComentariId id;
     
     public Comentari(){};
     
@@ -27,11 +30,13 @@ public class Comentari {
      * @param h és le nom de l'hotel del qual s'ha fet el comentari
      */
     
-    public Comentari(Integer aval, String desc, Date data,String h){
+    public Comentari(Integer aval, String desc, Date data,ComentariId id){
         this.avaluacio = aval;
         this.descripcio = desc;
         this.data = data;
-        this.nomHotel = h;
+        //this.nomHotel = h;
+        //this.dniC = dni;
+        this.id = id;
     }
     
     /**
@@ -87,23 +92,28 @@ public class Comentari {
         this.descripcio = descripcio;
     }
     
+    
     /**
      * 
      * @return 
      */
 
-    public String getNomHotel() {
-        return nomHotel;
+    public ComentariId getId() {
+        return id;
     }
+    
     
     /**
      * 
-     * @param nomHotel 
+     * @param id 
      */
 
-    public void setNomHotel(String nomHotel) {
-        this.nomHotel = nomHotel;
+    public void setId(ComentariId id) {
+        this.id = id;
     }
+
+    
+    
     
     
     

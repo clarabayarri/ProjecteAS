@@ -77,7 +77,7 @@ public class HotelTest {
             Hotel h = (Hotel)session.get(Hotel.class, "Hotel Prova");
             session.delete(h);
             CategoriaHotel c = (CategoriaHotel)session.get(CategoriaHotel.class, "categoria de prova");
-            session.delete(c);
+//            session.delete(c);
             Poblacio p = (Poblacio)session.get(Poblacio.class, "ciutat de prova");
             session.delete(p);
             session.getTransaction().commit();
