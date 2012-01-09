@@ -4,9 +4,9 @@
  */
 package DomainModel;
 
-import Hibernate.HibernateUtil;
-import java.util.Date;
 import org.hibernate.Session;
+import java.util.Date;
+import Hibernate.HibernateUtil;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,9 +16,10 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author elena
+ * @author elena_gratallops
  */
 public class ComentariTest {
+    
     static Session session = null;
     static String nomH = "Hotel prova";
     static String dniC = "39476969S";

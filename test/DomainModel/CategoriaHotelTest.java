@@ -4,8 +4,8 @@
  */
 package DomainModel;
 
-import Hibernate.HibernateUtil;
 import org.hibernate.Session;
+import Hibernate.HibernateUtil;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -68,4 +68,5 @@ public class CategoriaHotelTest {
 
   
 }
+
 
