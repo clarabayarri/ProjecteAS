@@ -4,6 +4,10 @@
  */
 package DomainModel;
 
+import java.util.ArrayList;
+import TupleTypes.DadesHotel;
+import java.util.Set;
+import java.util.Date;
 import org.hibernate.Session;
 import Hibernate.HibernateUtil;
 import org.junit.After;
@@ -34,11 +38,7 @@ public class PoblacioTest {
         } catch (RuntimeException e) {
             session.getTransaction().rollback();
             e.printStackTrace();
-        }
-
-        
-        
-        
+        }  
 
     }
 
@@ -63,15 +63,23 @@ public class PoblacioTest {
 
     @Test
     public void testHibernateFetch() {
-        
+        Poblacio poblacio = (Poblacio) session.get(Poblacio.class, "Gratallops");
+        String nom = poblacio.getNom();
+        assertEquals(nom, "Gratallops");
     }
     
     
     
     @Test
-    public void testgetDisponibles() {
+    public void testgetDisponibles() throws Exception {
         System.out.println("getDisponibles");
-        
-    
+        Integer numOc = null;
+        Date dIni = null;
+        Date dFi = null;
+        Poblacio pob = new Poblacio();
+        Set<DadesHotel> result = pob.getDisponibles(dIni, dFi, numOc);
+        ArrayList<DadesHotel> r = null;
+        Object[] res = result.toArray();
+        assertEquals(r, res);
     }
 }
